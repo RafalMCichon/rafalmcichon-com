@@ -1,4 +1,8 @@
 #!/usr/bin/env sh
+# Local Jekyll server with live reload (recommended for development)
+# Usage: ./scripts/serve-livereload.sh
+# Custom ports: PORT=4002 LR_PORT=35731 ./scripts/serve-livereload.sh
+
 set -eu
 
 HOST="${HOST:-127.0.0.1}"
@@ -33,4 +37,5 @@ if command -v brew >/dev/null 2>&1; then
   fi
 fi
 
+echo "Starting Jekyll with LiveReload at http://$HOST:$PORT/ (LiveReload: $LR_PORT)"
 bundle exec jekyll serve --livereload --livereload-port "$LR_PORT" --host "$HOST" --port "$PORT"

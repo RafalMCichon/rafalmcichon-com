@@ -1,4 +1,8 @@
 #!/usr/bin/env sh
+# Self-check script for Jekyll site validation
+# Verifies layouts, encoding, and front matter
+# Usage: ./scripts/self-check.sh
+
 set -eu
 
 echo "== Self-check: layouts contain {{ content }} =="
@@ -12,15 +16,17 @@ for f in _layouts/default.html _layouts/page.html _layouts/post.html; do
     exit 1
   fi
 done
-echo "OK: layouts"
+echo "✓ OK: layouts"
 
+echo ""
 echo "== Self-check: llms.txt mojibake smoke test =="
 if [ -f "llms.txt" ] && grep -q "â" llms.txt; then
   echo "ERROR: llms.txt contains mojibake (found 'â'). Use UTF-8 or ASCII-only."
   exit 1
 fi
-echo "OK: llms.txt"
+echo "✓ OK: llms.txt"
 
+echo ""
 echo "== Self-check: front matter basics (title + description) =="
 for f in $(find . -maxdepth 3 -name "*.md" -not -path "./_posts/*"); do
   case "$f" in
@@ -33,4 +39,7 @@ for f in $(find . -maxdepth 3 -name "*.md" -not -path "./_posts/*"); do
     echo "WARN: missing description in $f"
   fi
 done
-echo "Done."
+echo "✓ Done."
+
+echo ""
+echo "All checks passed!"

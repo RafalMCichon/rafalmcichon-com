@@ -1,4 +1,8 @@
 #!/usr/bin/env sh
+# Local Jekyll server without live reload
+# Usage: ./scripts/serve.sh
+# Custom port: PORT=4002 ./scripts/serve.sh
+
 set -eu
 
 HOST="${HOST:-127.0.0.1}"
@@ -12,4 +16,5 @@ if command -v lsof >/dev/null 2>&1; then
   fi
 fi
 
+echo "Starting Jekyll server at http://$HOST:$PORT/"
 bundle exec jekyll serve --host "$HOST" --port "$PORT"
