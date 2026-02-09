@@ -1,0 +1,16 @@
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="Home">Rafal M Cichon</a>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="/projects/" {% if page.url == "/projects/" %}aria-current="page"{% endif %}>Projects</a>
+  <a href="/notes/" {% if page.url == "/notes/" %}aria-current="page"{% endif %}>Notes</a>
+  <a href="/log/" {% if page.url == "/log/" %}aria-current="page"{% endif %}>Log</a>
+  <a href="/resume/" {% if page.url == "/resume/" %}aria-current="page"{% endif %}>Resume</a>
+  <a href="/about/" {% if page.url == "/about/" %}aria-current="page"{% endif %}>About</a>
+  <a href="/contact/" {% if page.url == "/contact/" %}aria-current="page"{% endif %}>Contact</a>
+    </nav>
+  </div>
+</header>
