@@ -7,7 +7,7 @@ permalink: /about/
 
 # About
 
-I’m a growth-focused front-end engineer with a UX mindset. I care about **clarity, speed, accessibility, and measurable outcomes** — and I try to build systems that stay useful for years.
+I'm a Senior Digital Growth & Web Engineer specializing in UX, performance, and conversion optimization. I focus on **clarity, speed, accessibility, and measurable outcomes**.
 
 At Orlando Foods, I work close to the revenue and operations loop: **Shopify UX/CRO**, **technical SEO**, **performance (Core Web Vitals)**, **accessibility**, and **automation**. I publish practical notes and short case studies — wins, failures, trade-offs, and what I learned — so the work is reusable.
 
