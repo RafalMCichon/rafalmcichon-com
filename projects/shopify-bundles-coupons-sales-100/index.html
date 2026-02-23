@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Bundles + coupons in cart (~100% sales lift) · Rafal M Cichon</title><meta name="description" content="Surfacing bundles and coupon clarity earlier in the journey to increase sales (~100%, anonymized).">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Rafal M Cichon">
+
+<link rel="canonical" href="https://rafalmcichon.com/projects/shopify-bundles-coupons-sales-100/">
+
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="/assets/site.css">
+
+<!-- Favicons -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="Rafal M Cichon">
+<meta property="og:title" content="Bundles + coupons in cart (~100% sales lift)">
+<meta property="og:description" content="Surfacing bundles and coupon clarity earlier in the journey to increase sales (~100%, anonymized).">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rafalmcichon.com/projects/shopify-bundles-coupons-sales-100/">
+<meta property="og:image" content="https://rafalmcichon.com/assets/og-default.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bundles + coupons in cart (~100% sales lift)">
+<meta name="twitter:description" content="Surfacing bundles and coupon clarity earlier in the journey to increase sales (~100%, anonymized).">
+<meta name="twitter:image" content="https://rafalmcichon.com/assets/og-default.png">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Rafal M Cichon",
+  "url": "https://rafalmcichon.com/"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rafal M Cichon",
+  "url": "https://rafalmcichon.com/",
+  "jobTitle": "Senior Digital Growth & Web Engineer",
+  "knowsAbout": [
+    "Shopify UX",
+    "Conversion rate optimization (CRO)",
+    "Technical SEO",
+    "Core Web Vitals",
+    "Web performance",
+    "Web accessibility"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Orlando Foods",
+    "url": "https://orlandofoods.com/"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/rafalmcichon/",
+    "https://github.com/RafalMCichon",
+    "https://twitter.com/rafalmcichon",
+    "https://rafalmcichon.dev/"
+  ]
+}
+</script>
+
+
+
+<!-- RSS feed -->
+<link rel="alternate" type="application/rss+xml" title="Rafal M Cichon" href="https://rafalmcichon.com/feed.xml">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-STQ5M8CE0S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-STQ5M8CE0S');
+</script>
+
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="Home">Rafal M Cichon</a>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="/projects/" >Projects</a>
+  <a href="/notes/" >Notes</a>
+  <a href="/log/" >Log</a>
+  <a href="/resume/" >Resume</a>
+  <a href="/about/" >About</a>
+  <a href="/contact/" >Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main-content" tabindex="-1" class="wrap">
+      <h1 id="bundles--coupons-in-cart-100-sales-lift">Bundles + coupons in cart (~100% sales lift)</h1>
+
+<blockquote>
+  <p><strong>Note:</strong> This case study is intentionally anonymized. Numbers are shared as approximate ranges. Company, SKU names, and internal links are omitted.</p>
+</blockquote>
+
+<h2 id="tldr">TL;DR</h2>
+<p>The store had promotions and bundle value, but customers didn’t reliably <em>see</em> it at the right time.<br />
+By improving <strong>bundle presentation</strong> and <strong>coupon visibility</strong> inside the cart (not only at checkout), we reduced confusion and increased purchase intent - resulting in an <strong>~100% sales lift</strong> during the measured period.</p>
+
+<h2 id="context">Context</h2>
+<ul>
+  <li>Platform: Shopify</li>
+  <li>Constraint: keep changes lightweight and theme-friendly</li>
+  <li>Risk: promotions can increase revenue but also introduce margin and abuse risk</li>
+  <li>Goal: increase conversion/AOV by making value obvious <em>before</em> checkout</li>
+</ul>
+
+<h2 id="the-problem">The problem</h2>
+<p>Two common ecommerce problems were present:</p>
+
+<p>1) <strong>Bundles exist, but are invisible.</strong><br />
+Users don’t discover the offer, so they never evaluate it.</p>
+
+<p>2) <strong>Coupons feel uncertain.</strong><br />
+When customers don’t know if a discount will apply, they hesitate (or abandon).</p>
+
+<h2 id="hypothesis">Hypothesis</h2>
+<p>If we surface “value” earlier and make the discount behavior predictable:</p>
+<ul>
+  <li>more customers will complete checkout</li>
+  <li>more customers will add complementary items (AOV lift)</li>
+  <li>fewer customers will abandon due to uncertainty</li>
+</ul>
+
+<h2 id="what-i-changed">What I changed</h2>
+<h3 id="1-bundle-visibility-in-cart">1) Bundle visibility in cart</h3>
+<ul>
+  <li>added a cart-level bundle message (clear, scannable, not salesy)</li>
+  <li>surfaced “add the bundle” options at the moment intent is highest</li>
+  <li>kept the interaction simple and fast (minimal extra scripts)</li>
+</ul>
+
+<h3 id="2-coupon-clarity">2) Coupon clarity</h3>
+<ul>
+  <li>improved messaging around discounts (when it applies, where to enter, what to expect)</li>
+  <li>removed ambiguity and reduced “trial-and-error” behavior at checkout</li>
+</ul>
+
+<h3 id="3-guardrails">3) Guardrails</h3>
+<ul>
+  <li>monitored discount usage and obvious abuse patterns</li>
+  <li>kept the system simple enough to maintain (no fragile logic)
+    <h2 id="promotion-hygiene-keeping-it-clear">Promotion hygiene (keeping it clear)</h2>
+    <p>Revenue lift is great, but promotions can become confusing fast. To keep the user experience clear and maintainable, I:</p>
+  </li>
+  <li>Disabled several legacy/overlapping discounts that no longer served a purpose</li>
+  <li>Renamed remaining offers so the rules are obvious to customers</li>
+  <li>Consolidated active promotions into a few clear offers (e.g., <strong>case discount</strong>, <strong>gluten-free case discount</strong>, <strong>mix &amp; match</strong>)</li>
+  <li>Implemented a cart view that surfaces the right coupon/value message based on what’s in the cart, including a clear CTA (e.g., “Get 15% off”)</li>
+</ul>
+
+<p>This reduced ambiguity and helped customers feel confident that they were getting the intended deal.</p>
+
+<h2 id="measurement">Measurement</h2>
+<p>I measured impact using:</p>
+<ul>
+  <li>sales and conversion trends across comparable windows</li>
+  <li>cart behavior (add/remove patterns)</li>
+  <li>supporting signals (discount usage, checkout initiation)</li>
+</ul>
+
+<h2 id="results">Results</h2>
+<ul>
+  <li>Total sales increased by <strong>~100%</strong> in the measured period (relative lift).</li>
+  <li>The biggest improvement came from reduced uncertainty at the cart/checkout boundary.</li>
+</ul>
+
+<h2 id="lessons-learned">Lessons learned</h2>
+<ul>
+  <li>“Value” needs to appear <em>where intent happens</em> (cart), not only in marketing or checkout.</li>
+  <li>Discount UX is trust UX: clear rules beat hidden fields.</li>
+  <li>Keep promotional systems maintainable, or you’ll create long-term ops debt.</li>
+</ul>
+
+<h2 id="related-notes">Related notes</h2>
+<ul>
+  <li><a href="/notes/cart-checkout-bundles-coupons/">Cart &amp; checkout patterns: bundles + coupon visibility</a></li>
+</ul>
+
+<h2 id="what-id-do-next">What I’d do next</h2>
+
+<ul>
+  <li>Validate the profit side: track margin impact per promotion and define guardrails (minimum AOV, exclusions, stacking rules).</li>
+  <li>Run a small set of tests: cart messaging variants, bundle placement, and discount visibility patterns.</li>
+  <li>Align promo + inventory: ensure promotions don’t push velocity-high SKUs into stockout risk.</li>
+  <li>Create a “promo hygiene” checklist: naming conventions, user-facing clarity, and a monthly audit of active discounts.</li>
+</ul>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p class="muted">
+      © 2026 Rafal M Cichon ·
+      <a href="/site/">Site</a> ·
+      <a href="/feed.xml">RSS</a> ·
+      <a href="/sitemap.xml">Sitemap</a> ·
+      <a href="/llms.txt">LLMs</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

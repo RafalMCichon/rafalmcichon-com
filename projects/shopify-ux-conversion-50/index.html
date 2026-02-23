@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Shopify UX improvements (~50% conversion lift) · Rafal M Cichon</title><meta name="description" content="A focused UX + performance effort that increased conversion by ~50% without a redesign (anonymized).">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Rafal M Cichon">
+
+<link rel="canonical" href="https://rafalmcichon.com/projects/shopify-ux-conversion-50/">
+
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="/assets/site.css">
+
+<!-- Favicons -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="Rafal M Cichon">
+<meta property="og:title" content="Shopify UX improvements (~50% conversion lift)">
+<meta property="og:description" content="A focused UX + performance effort that increased conversion by ~50% without a redesign (anonymized).">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rafalmcichon.com/projects/shopify-ux-conversion-50/">
+<meta property="og:image" content="https://rafalmcichon.com/assets/og-default.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shopify UX improvements (~50% conversion lift)">
+<meta name="twitter:description" content="A focused UX + performance effort that increased conversion by ~50% without a redesign (anonymized).">
+<meta name="twitter:image" content="https://rafalmcichon.com/assets/og-default.png">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Rafal M Cichon",
+  "url": "https://rafalmcichon.com/"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rafal M Cichon",
+  "url": "https://rafalmcichon.com/",
+  "jobTitle": "Senior Digital Growth & Web Engineer",
+  "knowsAbout": [
+    "Shopify UX",
+    "Conversion rate optimization (CRO)",
+    "Technical SEO",
+    "Core Web Vitals",
+    "Web performance",
+    "Web accessibility"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Orlando Foods",
+    "url": "https://orlandofoods.com/"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/rafalmcichon/",
+    "https://github.com/RafalMCichon",
+    "https://twitter.com/rafalmcichon",
+    "https://rafalmcichon.dev/"
+  ]
+}
+</script>
+
+
+
+<!-- RSS feed -->
+<link rel="alternate" type="application/rss+xml" title="Rafal M Cichon" href="https://rafalmcichon.com/feed.xml">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-STQ5M8CE0S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-STQ5M8CE0S');
+</script>
+
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="Home">Rafal M Cichon</a>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="/projects/" >Projects</a>
+  <a href="/notes/" >Notes</a>
+  <a href="/log/" >Log</a>
+  <a href="/resume/" >Resume</a>
+  <a href="/about/" >About</a>
+  <a href="/contact/" >Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main-content" tabindex="-1" class="wrap">
+      <h1 id="shopify-ux-improvements-50-conversion-lift">Shopify UX improvements (~50% conversion lift)</h1>
+
+<blockquote>
+  <p><strong>Note:</strong> This case study is intentionally anonymized. Numbers are shared as approximate ranges. Company, SKU names, and internal tooling are omitted.</p>
+</blockquote>
+
+<h2 id="tldr">TL;DR</h2>
+<p>A Shopify store had consistent traffic but underperformed in conversion.<br />
+By focusing on <strong>clarity, friction removal, trust, and performance</strong>, I shipped a set of small UX changes (no redesign) that resulted in an <strong>~50% conversion lift</strong> over a measured period.</p>
+
+<h2 id="context">Context</h2>
+<ul>
+  <li>Platform: Shopify</li>
+  <li>Constraints: theme + app ecosystem, limited time, “ship weekly” pace</li>
+  <li>Goal: increase conversion without breaking tracking, SEO, or accessibility</li>
+  <li>Device reality: mobile-first behavior, but important desktop revenue remained</li>
+</ul>
+
+<h2 id="what-i-observed-signals">What I observed (signals)</h2>
+<p>I didn’t start with opinions - I started with evidence:</p>
+
+<ul>
+  <li>funnel drop-offs (product → cart → checkout)</li>
+  <li>support questions that repeated (shipping, returns, “is this the right product?”)</li>
+  <li>sessions/recordings and on-page behavior (hesitation, back-and-forth scanning)</li>
+  <li>performance pain points (slow first load, too many scripts)</li>
+</ul>
+
+<p>The pattern was clear: people wanted to buy, but <strong>too much uncertainty</strong> was left unanswered at decision points.</p>
+
+<h2 id="hypotheses">Hypotheses</h2>
+<p>1) If we reduce uncertainty on product pages (what it is, why it’s different, what happens after purchase), more users will add to cart.<br />
+2) If cart/checkout messaging is clearer (discounts, shipping, expectations), fewer users will abandon.<br />
+3) If we improve performance and visual stability, we’ll lift conversion on mobile.</p>
+
+<h2 id="changes-shipped-high-leverage-low-risk">Changes shipped (high leverage, low risk)</h2>
+<h3 id="1-decision-clarity-on-product-pages">1) Decision clarity on product pages</h3>
+<ul>
+  <li>clarified the primary value proposition in the first screen</li>
+  <li>improved information hierarchy (scannable bullets vs. paragraphs)</li>
+  <li>moved key trust signals closer to the “Add to cart” decision</li>
+</ul>
+
+<h3 id="2-reduced-friction-in-selection-and-purchase-intent">2) Reduced friction in selection and purchase intent</h3>
+<ul>
+  <li>simplified variant selection and defaults (fewer “dead ends”)</li>
+  <li>improved form labeling and error clarity (accessibility + UX)</li>
+  <li>reduced cognitive load by removing non-essential distractions</li>
+</ul>
+
+<h3 id="3-cart-and-checkout-clarity">3) Cart and checkout clarity</h3>
+<ul>
+  <li>made promo / savings messaging obvious (what applies and when)</li>
+  <li>improved “what happens next” messaging (shipping expectations)</li>
+</ul>
+
+<h3 id="4-performance-and-stability-improvements">4) Performance and stability improvements</h3>
+<ul>
+  <li>reduced unnecessary scripts where possible</li>
+  <li>improved image strategy (sizes, lazy loading below the fold, decoding)</li>
+  <li>targeted layout shifts that made the page feel “jumpy”</li>
+</ul>
+
+<h2 id="measurement-approach">Measurement approach</h2>
+<p>I used a practical measurement approach (because not every store can A/B test everything):</p>
+
+<ul>
+  <li>defined a baseline window and a post-change window</li>
+  <li>tracked conversion, add-to-cart rate, checkout start rate</li>
+  <li>segmented by device (mobile vs desktop)</li>
+  <li>monitored confounders (campaigns, stockouts, seasonality)</li>
+</ul>
+
+<p>The goal wasn’t perfect causality - it was <strong>repeatable improvement with controlled risk</strong>.</p>
+
+<h2 id="results">Results</h2>
+<ul>
+  <li>Conversion increased by <strong>~50%</strong> (relative lift) in the measured window.</li>
+  <li>Secondary improvements included healthier add-to-cart behavior and less checkout drop-off.</li>
+</ul>
+
+<h2 id="what-i-learned">What I learned</h2>
+<ul>
+  <li>Small changes near decision points beat “big redesign energy.”</li>
+  <li>Performance and UX are not separate - they compound.</li>
+  <li>A good process is: <strong>evidence → hypothesis → ship → measure → document</strong>.</li>
+</ul>
+
+<h2 id="related-notes">Related notes</h2>
+<ul>
+  <li><a href="/notes/measuring-shopify-ux-changes/">Measuring Shopify UX changes (minimal CRO plan)</a></li>
+</ul>
+
+<h2 id="what-id-do-next">What I’d do next</h2>
+
+<ul>
+  <li>Add a lightweight experimentation loop: 1–2 tests per month for the highest-leverage pages (product → cart).</li>
+  <li>Improve measurement quality: define a “North Star” metric plus 2 supporting metrics, and log confounders (promos, stockouts).</li>
+  <li>Build a repeatable content system for product education (guides + FAQs) so the store answers objections before checkout.</li>
+  <li>Keep shipping weekly: small UX + performance improvements compound faster than redesigns.</li>
+</ul>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p class="muted">
+      © 2026 Rafal M Cichon ·
+      <a href="/site/">Site</a> ·
+      <a href="/feed.xml">RSS</a> ·
+      <a href="/sitemap.xml">Sitemap</a> ·
+      <a href="/llms.txt">LLMs</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

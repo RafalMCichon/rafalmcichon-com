@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Estimate tool simplification (+300% completions) · Rafal M Cichon</title><meta name="description" content="Three generations of a marble estimate tool — Flash to Angular to Pixi.js — and how cutting it down to two shapes drove a 300% jump in completions.">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Rafal M Cichon">
+
+<link rel="canonical" href="https://rafalmcichon.com/projects/estimate-tool-300-percent/">
+
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="/assets/site.css">
+
+<!-- Favicons -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="Rafal M Cichon">
+<meta property="og:title" content="Estimate tool simplification (+300% completions)">
+<meta property="og:description" content="Three generations of a marble estimate tool — Flash to Angular to Pixi.js — and how cutting it down to two shapes drove a 300% jump in completions.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rafalmcichon.com/projects/estimate-tool-300-percent/">
+<meta property="og:image" content="https://rafalmcichon.com/assets/og-default.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Estimate tool simplification (+300% completions)">
+<meta name="twitter:description" content="Three generations of a marble estimate tool — Flash to Angular to Pixi.js — and how cutting it down to two shapes drove a 300% jump in completions.">
+<meta name="twitter:image" content="https://rafalmcichon.com/assets/og-default.png">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Rafal M Cichon",
+  "url": "https://rafalmcichon.com/"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rafal M Cichon",
+  "url": "https://rafalmcichon.com/",
+  "jobTitle": "Senior Digital Growth & Web Engineer",
+  "knowsAbout": [
+    "Shopify UX",
+    "Conversion rate optimization (CRO)",
+    "Technical SEO",
+    "Core Web Vitals",
+    "Web performance",
+    "Web accessibility"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Orlando Foods",
+    "url": "https://orlandofoods.com/"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/rafalmcichon/",
+    "https://github.com/RafalMCichon",
+    "https://twitter.com/rafalmcichon",
+    "https://rafalmcichon.dev/"
+  ]
+}
+</script>
+
+
+
+<!-- RSS feed -->
+<link rel="alternate" type="application/rss+xml" title="Rafal M Cichon" href="https://rafalmcichon.com/feed.xml">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-STQ5M8CE0S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-STQ5M8CE0S');
+</script>
+
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="Home">Rafal M Cichon</a>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="/projects/" >Projects</a>
+  <a href="/notes/" >Notes</a>
+  <a href="/log/" >Log</a>
+  <a href="/resume/" >Resume</a>
+  <a href="/about/" >About</a>
+  <a href="/contact/" >Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main-content" tabindex="-1" class="wrap">
+      <h1 id="estimate-tool-simplification-300-completions">Estimate tool simplification (+300% completions)</h1>
+
+<blockquote>
+  <p>Work at Marble.com (All Granite &amp; Marble Corp). Numbers are approximate. Internal details omitted out of respect for the company.</p>
+</blockquote>
+
+<p>The online estimate tool went through three generations over roughly a decade. I was involved in all three.</p>
+
+<h2 id="how-it-started">How it started</h2>
+
+<p>The first version was Flash — I owned the UX, coordinated the build, reviewed the API docs, and made sure the ERP pricing pulled correctly. When Flash started losing browser support around 2013–2015, I pushed for a migration before it became a crisis.</p>
+
+<p>Version two was Angular. Same role on my side. When Angular’s own support cycle ended years later, another migration became unavoidable.</p>
+
+<p>For version three the developer chose Pixi.js — that wasn’t my call. But the project stalled, and I stepped in to lead it through to completion.</p>
+
+<h2 id="what-i-actually-changed">What I actually changed</h2>
+
+<p>Every version had carried over too much complexity from the one before. Too many shape options, too many steps, too much that needed explanation. I watched real customers come into the office and struggle with it. Hotjar confirmed what I was seeing.</p>
+
+<p>The core fix was simple: <strong>99% of marble jobs are a rectangle or an L-shape</strong>. I cut everything else. Two shapes, cleaner steps, nothing that didn’t need to be there.</p>
+
+<p>I checked every decision with the sales team — they knew exactly where customers gave up. And I kept watching real people use it until the drop-offs stopped.</p>
+
+<p>One deliberate choice: email and phone at the end stayed optional. No gate.</p>
+
+<h2 id="what-happened">What happened</h2>
+
+<p>Completions jumped <strong>+300%</strong>, quickly. People started coming into the office with the emailed estimate already in hand — that hadn’t happened before. More of them left their contact details voluntarily, even though we never required it.</p>
+
+<h2 id="what-i-took-from-it">What I took from it</h2>
+
+<p>Watching someone actually use the thing is worth more than any stakeholder meeting. And “fewer options” is almost always the right answer when the task is narrow — the edge cases aren’t worth the friction they create for everyone else.</p>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p class="muted">
+      © 2026 Rafal M Cichon ·
+      <a href="/site/">Site</a> ·
+      <a href="/feed.xml">RSS</a> ·
+      <a href="/sitemap.xml">Sitemap</a> ·
+      <a href="/llms.txt">LLMs</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

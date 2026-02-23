@@ -1,0 +1,21 @@
+# Rafal M Cichon - Portfolio, Projects, Notes
+
+This is a personal portfolio and writing site.
+I publish practical notes, case studies, and a log of wins/losses/lessons learned.
+
+Primary pages:
+- /projects/ - case studies with constraints, decisions, and outcomes
+- /notes/ - short technical notes and experiments
+- /log/ - wins, losses, and reflections
+- /resume/ - condensed resume (full version on rafalmcichon.dev)
+- /about/ - background and focus areas
+- /contact/ - ways to reach me
+
+Best starting points:
+- /projects/shopify-ux-conversion-50/
+- /projects/shopify-bundles-coupons-sales-100/
+- /notes/writing-pages-llms-can-cite/
+- /notes/inventory-stability-is-a-growth-lever/
+- /notes/shopify-ux-friction-checklist/
+- /notes/cart-checkout-bundles-coupons/
+- /notes/measuring-shopify-ux-changes/

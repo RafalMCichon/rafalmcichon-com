@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://rafalmcichon.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://rafalmcichon.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-02-22T21:34:51-05:00</updated><id>https://rafalmcichon.com/feed.xml</id><title type="html">Rafal M Cichon</title><subtitle>Senior Digital Growth &amp; Web Engineer — Shopify UX, CRO, SEO, performance, accessibility.</subtitle><entry><title type="html">Measuring Shopify UX changes (a minimal CRO plan)</title><link href="https://rafalmcichon.com/notes/measuring-shopify-ux-changes/" rel="alternate" type="text/html" title="Measuring Shopify UX changes (a minimal CRO plan)" /><published>2026-02-08T15:00:00-05:00</published><updated>2026-02-08T15:00:00-05:00</updated><id>https://rafalmcichon.com/notes/measuring-shopify-ux-changes</id><content type="html" xml:base="https://rafalmcichon.com/notes/measuring-shopify-ux-changes/"><![CDATA[<h2 id="tldr">TL;DR</h2>
+<p>You don’t need perfect experimentation to improve conversion.<br />
+You need a <strong>consistent baseline</strong>, a <strong>repeatable method</strong>, and a habit of documenting confounders.</p>
+
+<p>This is the measurement approach I use when shipping Shopify UX improvements at a weekly cadence.</p>
+
+<h2 id="step-1-pick-3-core-metrics-and-stop-adding-more">Step 1: Pick 3 core metrics (and stop adding more)</h2>
+<ul>
+  <li>Conversion rate (primary)</li>
+  <li>Add-to-cart rate (supporting)</li>
+  <li>Checkout initiation rate (supporting)</li>
+</ul>
+
+<p>Optional: AOV, refund rate, support tickets, page speed signals.</p>
+
+<h2 id="step-2-define-a-baseline-and-a-post-change-window">Step 2: Define a baseline and a post-change window</h2>
+<p>Be explicit:</p>
+<ul>
+  <li>baseline window: X days/weeks before changes</li>
+  <li>post window: X days/weeks after changes</li>
+</ul>
+
+<p>If you ship weekly, use rolling windows and track change dates.</p>
+
+<h2 id="step-3-segment-by-device">Step 3: Segment by device</h2>
+<p>Many Shopify issues are mobile-only:</p>
+<ul>
+  <li>variant selection</li>
+  <li>sticky bars</li>
+  <li>image/gallery behavior</li>
+  <li>page speed and layout shifts</li>
+</ul>
+
+<p>Always check mobile vs desktop.</p>
+
+<h2 id="step-4-track-confounders-like-a-responsible-adult">Step 4: Track confounders like a responsible adult</h2>
+<p>Write down:</p>
+<ul>
+  <li>campaigns (email, paid, promos)</li>
+  <li>pricing changes / discounts</li>
+  <li>stockouts or “not shippable” surprises</li>
+  <li>fulfillment/carrier changes</li>
+  <li>seasonality spikes</li>
+</ul>
+
+<p>You can’t control everything, but you can stop lying to yourself.</p>
+
+<h2 id="step-5-prefer-time-series--sanity-checks">Step 5: Prefer time series + sanity checks</h2>
+<p>If A/B testing is not possible:</p>
+<ul>
+  <li>use time-series comparison</li>
+  <li>compare to similar prior periods (if seasonal)</li>
+  <li>check that supporting metrics move in the same direction</li>
+</ul>
+
+<h2 id="step-6-publish-a-short-weekly-report">Step 6: Publish a short weekly report</h2>
+<p>Keep it short:</p>
+<ul>
+  <li>what shipped</li>
+  <li>what moved (metrics)</li>
+  <li>what we think caused it</li>
+  <li>what we’ll do next</li>
+</ul>
+
+<p>This is how you build compounding improvements.</p>
+
+<h2 id="example-structure-copypaste">Example structure (copy/paste)</h2>
+<ul>
+  <li><strong>Change:</strong> what shipped</li>
+  <li><strong>Hypothesis:</strong> why it should help</li>
+  <li><strong>Baseline:</strong> dates + core metrics</li>
+  <li><strong>After:</strong> dates + core metrics</li>
+  <li><strong>Confounders:</strong> campaigns/stockouts/etc</li>
+  <li><strong>Decision:</strong> keep / iterate / revert</li>
+</ul>
+
+<h2 id="related">Related</h2>
+<ul>
+  <li>Shopify UX case study: <a href="/projects/shopify-ux-conversion-50/">~50% conversion lift</a></li>
+  <li>Cart/checkout patterns: <a href="/notes/cart-checkout-bundles-coupons/">bundles + coupon visibility</a></li>
+</ul>]]></content><author><name></name></author><category term="notes" /><summary type="html"><![CDATA[A simple measurement plan for teams that ship weekly and can’t A/B test everything.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://rafalmcichon.com/assets/og-default.png" /><media:content medium="image" url="https://rafalmcichon.com/assets/og-default.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Cart &amp;amp; checkout: bundles + coupon visibility (patterns that lift revenue)</title><link href="https://rafalmcichon.com/notes/cart-checkout-bundles-coupons/" rel="alternate" type="text/html" title="Cart &amp;amp; checkout: bundles + coupon visibility (patterns that lift revenue)" /><published>2026-02-08T13:30:00-05:00</published><updated>2026-02-08T13:30:00-05:00</updated><id>https://rafalmcichon.com/notes/cart-checkout-bundles-coupons</id><content type="html" xml:base="https://rafalmcichon.com/notes/cart-checkout-bundles-coupons/"><![CDATA[<h2 id="tldr">TL;DR</h2>
+<p>Bundles and discounts don’t work if users discover them too late.<br />
+Cart is the best place to surface value because intent is already high.</p>
+
+<p>This note is based on a Shopify project where making bundles + coupon behavior clearer increased sales significantly (see: <a href="/projects/shopify-bundles-coupons-sales-100/">case study</a>).</p>
+
+<h2 id="why-cart-is-the-leverage-point">Why cart is the leverage point</h2>
+<p>By the time someone is in cart:</p>
+<ul>
+  <li>they already chose something</li>
+  <li>they are evaluating risk (“what will happen next?”)</li>
+  <li>they are sensitive to surprises (shipping, discounts, delivery)</li>
+</ul>
+
+<p>Cart UX is trust UX.</p>
+
+<h2 id="pattern-1-make-bundles-feel-like-help-not-upsell-spam">Pattern 1: Make bundles feel like “help”, not upsell spam</h2>
+<p>Good bundle UI:</p>
+<ul>
+  <li>is relevant to what’s already in the cart</li>
+  <li>explains the benefit in one line (“Save X”, “Complete the set”, “Best for Y”)</li>
+  <li>is easy to dismiss (no modal traps)</li>
+</ul>
+
+<p>Bad bundle UI:</p>
+<ul>
+  <li>blocks checkout</li>
+  <li>forces unrelated items</li>
+  <li>hides pricing logic</li>
+</ul>
+
+<h2 id="pattern-2-coupon-clarity-reduces-abandonment">Pattern 2: Coupon clarity reduces abandonment</h2>
+<p>Common failure: “I have a code… where do I put it?”<br />
+Even if the checkout has a field, uncertainty starts earlier.</p>
+
+<p>Ways to reduce uncertainty:</p>
+<ul>
+  <li>show a simple “Discounts apply at checkout” message</li>
+  <li>if you use automatic discounts, state it clearly</li>
+  <li>avoid making users hunt for hidden UI</li>
+</ul>
+
+<h2 id="pattern-3-show-savings-in-a-stable-readable-way">Pattern 3: Show savings in a stable, readable way</h2>
+<p>If savings exist, show them clearly:</p>
+<ul>
+  <li>line item savings (if applicable)</li>
+  <li>subtotal + discount + total</li>
+  <li>avoid reflow/jumping totals (stability matters)</li>
+</ul>
+
+<h2 id="pattern-4-guardrails-dont-create-margin-debt">Pattern 4: Guardrails (don’t create margin debt)</h2>
+<p>Revenue lift is great, but keep control:</p>
+<ul>
+  <li>monitor discount usage</li>
+  <li>set boundaries (SKU scope, time windows, stacking rules)</li>
+  <li>document promo rules so the team can maintain them</li>
+</ul>
+
+<h2 id="a-minimal-checklist">A minimal checklist</h2>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Bundle offer is visible in cart (if relevant)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Value proposition is one sentence, not a paragraph</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Coupon behavior is predictable (not hidden or confusing)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Savings are displayed clearly and consistently</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Promotions are maintainable (simple rules, documented)</li>
+</ul>
+
+<p>Small clarity improvements can produce surprisingly large revenue changes.</p>]]></content><author><name></name></author><category term="notes" /><summary type="html"><![CDATA[Practical UI patterns to make value obvious and reduce discount uncertainty.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://rafalmcichon.com/assets/og-default.png" /><media:content medium="image" url="https://rafalmcichon.com/assets/og-default.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Shopify UX: a friction-first checklist</title><link href="https://rafalmcichon.com/notes/shopify-ux-friction-checklist/" rel="alternate" type="text/html" title="Shopify UX: a friction-first checklist" /><published>2026-02-08T12:00:00-05:00</published><updated>2026-02-08T12:00:00-05:00</updated><id>https://rafalmcichon.com/notes/shopify-ux-friction-checklist</id><content type="html" xml:base="https://rafalmcichon.com/notes/shopify-ux-friction-checklist/"><![CDATA[<h2 id="tldr">TL;DR</h2>
+<p>Conversion usually drops for boring reasons: uncertainty, hidden info, and too many small frictions.<br />
+Before redesigning anything, run a <strong>friction-first checklist</strong> and ship the simplest fixes.</p>
+
+<p>This checklist comes from real Shopify UX work where targeted changes produced large lifts (see: <a href="/projects/shopify-ux-conversion-50/">case study</a>).</p>
+
+<h2 id="1-first-screen-can-a-new-user-answer-what-is-this-in-5-seconds">1) First screen: can a new user answer “what is this” in 5 seconds?</h2>
+<ul>
+  <li>What is the product?</li>
+  <li>Who is it for?</li>
+  <li>Why should I trust it?</li>
+  <li>What happens after I click “Add to cart”?</li>
+</ul>
+
+<p>If those answers are missing, your best traffic will still bounce.</p>
+
+<h3 id="quick-fixes">Quick fixes</h3>
+<ul>
+  <li>rewrite the first 2–3 lines to be specific (not generic marketing)</li>
+  <li>move 1–2 trust signals near the decision point (shipping/returns/support)</li>
+  <li>replace paragraphs with bullets for scannability</li>
+</ul>
+
+<h2 id="2-decision-points-remove-uncertainty-at-the-exact-moment-it-appears">2) Decision points: remove uncertainty at the exact moment it appears</h2>
+<p>Users hesitate at:</p>
+<ul>
+  <li>variant selection</li>
+  <li>shipping cost surprise</li>
+  <li>“will my discount apply?”</li>
+  <li>delivery expectations</li>
+</ul>
+
+<h3 id="quick-fixes-1">Quick fixes</h3>
+<ul>
+  <li>set smart defaults for variants</li>
+  <li>label forms clearly (especially on mobile)</li>
+  <li>show shipping/return expectations plainly (no legalese)</li>
+  <li>if promotions exist, make discount behavior predictable</li>
+</ul>
+
+<h2 id="3-cart-treat-it-like-a-second-product-page">3) Cart: treat it like a second product page</h2>
+<p>Cart is where intent is highest - don’t waste it.</p>
+
+<ul>
+  <li>show what matters: items, savings, total, next step</li>
+  <li>reduce clutter and remove distractions</li>
+  <li>if you have upsells/bundles, make them obvious but not annoying</li>
+</ul>
+
+<h2 id="4-performance-speed-is-trust">4) Performance: speed is trust</h2>
+<p>A slow store feels risky. Even if the product is great, slow pages reduce confidence.</p>
+
+<p>Minimal improvements that usually help:</p>
+<ul>
+  <li>audit third-party scripts (remove what you don’t need)</li>
+  <li>optimize images (sizes, modern formats, lazy loading below the fold)</li>
+  <li>reduce layout shifts (especially in the first viewport)</li>
+</ul>
+
+<h2 id="5-accessibility-is-conversion">5) Accessibility is conversion</h2>
+<p>Accessibility improvements often reduce friction for everyone:</p>
+<ul>
+  <li>better labels = fewer form errors</li>
+  <li>better focus states = easier checkout for keyboard users</li>
+  <li>better semantics = better SEO + better usability</li>
+</ul>
+
+<h2 id="6-measure-like-a-grown-up-simple-consistent">6) Measure like a grown-up (simple, consistent)</h2>
+<p>Track:</p>
+<ul>
+  <li>conversion rate</li>
+  <li>add-to-cart rate</li>
+  <li>checkout initiation</li>
+  <li>device split</li>
+  <li>known confounders (campaigns, stockouts)</li>
+</ul>
+
+<p>If you need a minimal framework: <a href="/notes/measuring-shopify-ux-changes/">Measuring Shopify UX changes</a>.</p>
+
+<h2 id="a-minimal-checklist">A minimal checklist</h2>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />“What is this?” is answered in the first screen</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Trust signals are near the purchase decision</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Variants have sensible defaults and clear labels</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Cart shows savings and next step clearly</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Promo behavior is predictable</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Scripts are audited; images are sized</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Focus states and form labels are solid</li>
+</ul>
+
+<p>Small fixes, shipped weekly, beat big redesigns that never land.</p>]]></content><author><name></name></author><category term="notes" /><summary type="html"><![CDATA[A practical checklist for improving conversion without redesigning your store.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://rafalmcichon.com/assets/og-default.png" /><media:content medium="image" url="https://rafalmcichon.com/assets/og-default.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Inventory stability is a growth lever</title><link href="https://rafalmcichon.com/notes/inventory-stability-is-a-growth-lever/" rel="alternate" type="text/html" title="Inventory stability is a growth lever" /><published>2026-02-08T09:00:00-05:00</published><updated>2026-02-08T09:00:00-05:00</updated><id>https://rafalmcichon.com/notes/inventory-stability-is-a-growth-lever</id><content type="html" xml:base="https://rafalmcichon.com/notes/inventory-stability-is-a-growth-lever/"><![CDATA[<h2 id="tldr">TL;DR</h2>
+<p>If your <strong>top SKUs</strong> go out of stock, you lose revenue <em>and</em> you damage your marketing signal (ads, email, SEO demand).<br />
+A simple, reliable pattern is: <strong>velocity tiers → thresholds → alerts → a fast human confirmation loop</strong>.</p>
+
+<p>This is less about “inventory management software” and more about <strong>operational reliability</strong>.</p>
+
+<h2 id="why-inventory-affects-growth">Why inventory affects growth</h2>
+<p>Inventory stability impacts:</p>
+
+<ul>
+  <li><strong>Conversion:</strong> users bounce when “out of stock” appears after they got invested.</li>
+  <li><strong>Paid media efficiency:</strong> ads keep spending while customers can’t buy.</li>
+  <li><strong>Email performance:</strong> campaigns hit dead ends, unsubscribe risk increases.</li>
+  <li><strong>Support load:</strong> “when will it be back?” tickets spike.</li>
+  <li><strong>SEO:</strong> demand can remain, but users (and crawlers) see poor availability.</li>
+</ul>
+
+<h2 id="the-pattern-velocity-tiers">The pattern: velocity tiers</h2>
+<p>Instead of one global threshold for everything, group SKUs by observed sales velocity:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">velocity-high</code> (top sellers)</li>
+  <li><code class="language-plaintext highlighter-rouge">velocity-medium</code></li>
+  <li><code class="language-plaintext highlighter-rouge">velocity-low</code></li>
+</ul>
+
+<p>Then assign tiered thresholds, for example:</p>
+
+<ul>
+  <li>high: alert at <code class="language-plaintext highlighter-rouge">&lt;= 140</code></li>
+  <li>medium: alert at <code class="language-plaintext highlighter-rouge">&lt;= 99</code></li>
+  <li>low: alert at <code class="language-plaintext highlighter-rouge">&lt;= 60</code></li>
+  <li>global critical fallback: alert at <code class="language-plaintext highlighter-rouge">&lt;= 30</code></li>
+</ul>
+
+<p>The actual numbers depend on your weekly unit sales and lead times, but the idea stays the same: <strong>protect high velocity SKUs earlier.</strong></p>
+
+<h2 id="the-workflow-that-works-human-in-the-loop">The workflow that works (human-in-the-loop)</h2>
+<p>You want an automation that does <strong>only what machines are good at</strong>:</p>
+
+<p>1) Detect: “SKU crossed threshold.”<br />
+2) Notify: Slack/email/dashboard alert with SKU + current units + link<br />
+3) Prepare: a <strong>draft message</strong> to the right human contact(s)<br />
+4) Human action: confirm “yes, add X units” or “no, set to 0 / hold”<br />
+5) Apply: update Shopify inventory + log what happened</p>
+
+<p>Key point: the automation <strong>does not invent inventory</strong>. It accelerates the loop.</p>
+
+<h2 id="metrics-that-matter">Metrics that matter</h2>
+<p>When you publish or evaluate these systems, track:</p>
+
+<ul>
+  <li><strong>Time-to-awareness</strong> (how early you detect risk)</li>
+  <li><strong>Time-to-action</strong> (how fast you confirm and update)</li>
+  <li><strong>Stockout events prevented</strong> (count, or % reduction)</li>
+  <li><strong>Revenue at risk</strong> (approx. daily unit sales × margin × downtime)</li>
+</ul>
+
+<p>Even a “small” reduction in stockouts can be huge if it protects your top 3 SKUs.</p>
+
+<h2 id="guardrails-what-can-go-wrong">Guardrails (what can go wrong)</h2>
+<p>Common failure modes:</p>
+
+<ul>
+  <li>Fulfillment says stock exists, but it is <strong>not shippable</strong> (packaging, labeling, location).</li>
+  <li>Inventory is “available” but committed elsewhere (B2B, wholesale, pending pallets).</li>
+  <li>Alerts are noisy → people ignore them.</li>
+</ul>
+
+<p>Mitigations:</p>
+
+<ul>
+  <li>Keep a “critical” alert that always fires low enough to matter.</li>
+  <li>Keep humans accountable: “Who confirms? Who updates?”</li>
+  <li>Keep the rules visible (tier tags + thresholds documented).</li>
+</ul>
+
+<h2 id="a-minimal-checklist">A minimal checklist</h2>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Define velocity tiers based on last 365 days (or 90 if seasonal)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Set thresholds based on weekly units and lead times</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Route alerts to a single owner (not a big group)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Generate a draft email/message (fast to approve)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Review outcomes weekly</li>
+</ul>
+
+<h2 id="when-not-to-do-this">When not to do this</h2>
+<p>If you are early-stage with 5 products, manual monitoring may be enough.<br />
+But once you run campaigns, manage multiple brands, or coordinate with fulfillment partners, <strong>inventory is part of growth</strong>.</p>]]></content><author><name></name></author><category term="notes" /><summary type="html"><![CDATA[How velocity tiers + low-stock alerts protect revenue, marketing, and customer trust (without over-automating).]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://rafalmcichon.com/assets/og-default.png" /><media:content medium="image" url="https://rafalmcichon.com/assets/og-default.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Writing pages LLMs can cite</title><link href="https://rafalmcichon.com/notes/writing-pages-llms-can-cite/" rel="alternate" type="text/html" title="Writing pages LLMs can cite" /><published>2026-02-06T09:00:00-05:00</published><updated>2026-02-06T09:00:00-05:00</updated><id>https://rafalmcichon.com/notes/writing-pages-llms-can-cite</id><content type="html" xml:base="https://rafalmcichon.com/notes/writing-pages-llms-can-cite/"><![CDATA[<h2 id="tldr">TL;DR</h2>
+<p>Put the answer in <strong>2-3 sentences</strong> first, then add context and evidence.</p>
+
+<h2 id="a-structure-that-works">A structure that works</h2>
+<ul>
+  <li>Context (constraints matter)</li>
+  <li>What didnt work (common traps)</li>
+  <li>What worked (decisions + why)</li>
+  <li>Results (numbers, impact)</li>
+  <li>When not to use (trade-offs)</li>
+</ul>]]></content><author><name></name></author><category term="notes" /><summary type="html"><![CDATA[A practical, no-fluff structure for LLM-friendly technical writing.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://rafalmcichon.com/assets/og-default.png" /><media:content medium="image" url="https://rafalmcichon.com/assets/og-default.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Measuring Shopify UX changes (a minimal CRO plan) · Rafal M Cichon</title><meta name="description" content="A simple measurement plan for teams that ship weekly and can’t A/B test everything.">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Rafal M Cichon">
+
+<link rel="canonical" href="https://rafalmcichon.com/notes/measuring-shopify-ux-changes/">
+
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="/assets/site.css">
+
+<!-- Favicons -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="Rafal M Cichon">
+<meta property="og:title" content="Measuring Shopify UX changes (a minimal CRO plan)">
+<meta property="og:description" content="A simple measurement plan for teams that ship weekly and can’t A/B test everything.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rafalmcichon.com/notes/measuring-shopify-ux-changes/">
+<meta property="og:image" content="https://rafalmcichon.com/assets/og-default.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Measuring Shopify UX changes (a minimal CRO plan)">
+<meta name="twitter:description" content="A simple measurement plan for teams that ship weekly and can’t A/B test everything.">
+<meta name="twitter:image" content="https://rafalmcichon.com/assets/og-default.png">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Rafal M Cichon",
+  "url": "https://rafalmcichon.com/"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rafal M Cichon",
+  "url": "https://rafalmcichon.com/",
+  "jobTitle": "Senior Digital Growth & Web Engineer",
+  "knowsAbout": [
+    "Shopify UX",
+    "Conversion rate optimization (CRO)",
+    "Technical SEO",
+    "Core Web Vitals",
+    "Web performance",
+    "Web accessibility"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Orlando Foods",
+    "url": "https://orlandofoods.com/"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/rafalmcichon/",
+    "https://github.com/RafalMCichon",
+    "https://twitter.com/rafalmcichon",
+    "https://rafalmcichon.dev/"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Measuring Shopify UX changes (a minimal CRO plan)",
+  "description": "A simple measurement plan for teams that ship weekly and can’t A/B test everything.",
+  "author": { "@type": "Person", "name": "Rafal M Cichon", "url": "https://rafalmcichon.com/" },
+  "publisher": { "@type": "Person", "name": "Rafal M Cichon", "url": "https://rafalmcichon.com/" },
+  "datePublished": "2026-02-08T15:00:00-05:00",
+  "dateModified": "2026-02-08T15:00:00-05:00",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rafalmcichon.com/notes/measuring-shopify-ux-changes/" },
+  "image": ["https://rafalmcichon.com/assets/og-default.png"]
+}
+</script>
+
+
+<!-- RSS feed -->
+<link rel="alternate" type="application/rss+xml" title="Rafal M Cichon" href="https://rafalmcichon.com/feed.xml">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-STQ5M8CE0S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-STQ5M8CE0S');
+</script>
+
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="Home">Rafal M Cichon</a>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="/projects/" >Projects</a>
+  <a href="/notes/" >Notes</a>
+  <a href="/log/" >Log</a>
+  <a href="/resume/" >Resume</a>
+  <a href="/about/" >About</a>
+  <a href="/contact/" >Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main-content" tabindex="-1" class="wrap">
+      <article class="post">
+  <header class="post-header">
+    <h1>Measuring Shopify UX changes (a minimal CRO plan)</h1>
+
+    
+      <p class="muted">
+        <time datetime="2026-02-08T15:00:00-05:00">February 8, 2026</time>
+      </p>
+    
+
+    
+      <p class="lead">A simple measurement plan for teams that ship weekly and can’t A/B test everything.</p>
+    
+  </header>
+
+  <div class="post-content">
+    <h2 id="tldr">TL;DR</h2>
+<p>You don’t need perfect experimentation to improve conversion.<br />
+You need a <strong>consistent baseline</strong>, a <strong>repeatable method</strong>, and a habit of documenting confounders.</p>
+
+<p>This is the measurement approach I use when shipping Shopify UX improvements at a weekly cadence.</p>
+
+<h2 id="step-1-pick-3-core-metrics-and-stop-adding-more">Step 1: Pick 3 core metrics (and stop adding more)</h2>
+<ul>
+  <li>Conversion rate (primary)</li>
+  <li>Add-to-cart rate (supporting)</li>
+  <li>Checkout initiation rate (supporting)</li>
+</ul>
+
+<p>Optional: AOV, refund rate, support tickets, page speed signals.</p>
+
+<h2 id="step-2-define-a-baseline-and-a-post-change-window">Step 2: Define a baseline and a post-change window</h2>
+<p>Be explicit:</p>
+<ul>
+  <li>baseline window: X days/weeks before changes</li>
+  <li>post window: X days/weeks after changes</li>
+</ul>
+
+<p>If you ship weekly, use rolling windows and track change dates.</p>
+
+<h2 id="step-3-segment-by-device">Step 3: Segment by device</h2>
+<p>Many Shopify issues are mobile-only:</p>
+<ul>
+  <li>variant selection</li>
+  <li>sticky bars</li>
+  <li>image/gallery behavior</li>
+  <li>page speed and layout shifts</li>
+</ul>
+
+<p>Always check mobile vs desktop.</p>
+
+<h2 id="step-4-track-confounders-like-a-responsible-adult">Step 4: Track confounders like a responsible adult</h2>
+<p>Write down:</p>
+<ul>
+  <li>campaigns (email, paid, promos)</li>
+  <li>pricing changes / discounts</li>
+  <li>stockouts or “not shippable” surprises</li>
+  <li>fulfillment/carrier changes</li>
+  <li>seasonality spikes</li>
+</ul>
+
+<p>You can’t control everything, but you can stop lying to yourself.</p>
+
+<h2 id="step-5-prefer-time-series--sanity-checks">Step 5: Prefer time series + sanity checks</h2>
+<p>If A/B testing is not possible:</p>
+<ul>
+  <li>use time-series comparison</li>
+  <li>compare to similar prior periods (if seasonal)</li>
+  <li>check that supporting metrics move in the same direction</li>
+</ul>
+
+<h2 id="step-6-publish-a-short-weekly-report">Step 6: Publish a short weekly report</h2>
+<p>Keep it short:</p>
+<ul>
+  <li>what shipped</li>
+  <li>what moved (metrics)</li>
+  <li>what we think caused it</li>
+  <li>what we’ll do next</li>
+</ul>
+
+<p>This is how you build compounding improvements.</p>
+
+<h2 id="example-structure-copypaste">Example structure (copy/paste)</h2>
+<ul>
+  <li><strong>Change:</strong> what shipped</li>
+  <li><strong>Hypothesis:</strong> why it should help</li>
+  <li><strong>Baseline:</strong> dates + core metrics</li>
+  <li><strong>After:</strong> dates + core metrics</li>
+  <li><strong>Confounders:</strong> campaigns/stockouts/etc</li>
+  <li><strong>Decision:</strong> keep / iterate / revert</li>
+</ul>
+
+<h2 id="related">Related</h2>
+<ul>
+  <li>Shopify UX case study: <a href="/projects/shopify-ux-conversion-50/">~50% conversion lift</a></li>
+  <li>Cart/checkout patterns: <a href="/notes/cart-checkout-bundles-coupons/">bundles + coupon visibility</a></li>
+</ul>
+
+  </div>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p class="muted">
+      © 2026 Rafal M Cichon ·
+      <a href="/site/">Site</a> ·
+      <a href="/feed.xml">RSS</a> ·
+      <a href="/sitemap.xml">Sitemap</a> ·
+      <a href="/llms.txt">LLMs</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>
