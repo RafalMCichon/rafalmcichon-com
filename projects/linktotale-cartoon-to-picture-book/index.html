@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>LinkToTale: Cartoon to Picture Book — CLI</title><meta name="description" content="A Node.js CLI that converts a YouTube cartoon into a bilingual HTML picture book using GPT-4.1 vision. ~$0.50 per book.">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Rafal M Cichon">
+
+<link rel="canonical" href="https://rafalmcichon.com/projects/linktotale-cartoon-to-picture-book/">
+
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="/assets/site.css">
+
+<!-- Favicons -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="Rafal M Cichon">
+<meta property="og:title" content="LinkToTale: Cartoon to Picture Book — CLI">
+<meta property="og:description" content="A Node.js CLI that converts a YouTube cartoon into a bilingual HTML picture book using GPT-4.1 vision. ~$0.50 per book.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rafalmcichon.com/projects/linktotale-cartoon-to-picture-book/">
+<meta property="og:image" content="https://rafalmcichon.com/assets/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LinkToTale: Cartoon to Picture Book — CLI">
+<meta name="twitter:description" content="A Node.js CLI that converts a YouTube cartoon into a bilingual HTML picture book using GPT-4.1 vision. ~$0.50 per book.">
+<meta name="twitter:image" content="https://rafalmcichon.com/assets/og-default.png">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Rafal M Cichon",
+  "url": "https://rafalmcichon.com/"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rafal M Cichon",
+  "url": "https://rafalmcichon.com/",
+  "jobTitle": "Senior Digital Growth & Web Engineer",
+  "knowsAbout": [
+    "Shopify UX",
+    "Conversion rate optimization (CRO)",
+    "Technical SEO",
+    "Core Web Vitals",
+    "Web performance",
+    "Web accessibility"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Orlando Foods",
+    "url": "https://orlandofoods.com/"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/rafalmcichon/",
+    "https://github.com/RafalMCichon",
+    "https://twitter.com/rafalmcichon",
+    "https://rafalmcichon.dev/"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "LinkToTale — YouTube cartoon to picture book (CLI)",
+  "description": "A Node.js CLI that converts a YouTube cartoon into a bilingual HTML picture book using GPT-4.1 vision. ~$0.50 per book.",
+  "author": { "@type": "Person", "name": "Rafal M Cichon", "url": "https://rafalmcichon.com/" },
+  "publisher": { "@type": "Person", "name": "Rafal M Cichon", "url": "https://rafalmcichon.com/" },
+  "datePublished": "2026-03-11T00:00:00-04:00",
+  "dateModified": "2026-03-11T00:00:00-04:00",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rafalmcichon.com/projects/linktotale-cartoon-to-picture-book/" },
+  "image": ["https://rafalmcichon.com/assets/og-default.png"]
+}
+</script>
+
+
+<!-- RSS feed -->
+<link rel="alternate" type="application/rss+xml" title="Rafal M Cichon" href="https://rafalmcichon.com/feed.xml">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-STQ5M8CE0S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-STQ5M8CE0S');
+</script>
+
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="Home">Rafal M Cichon</a>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="/projects/" >Projects</a>
+  <a href="/notes/" >Notes</a>
+  <a href="/log/" >Log</a>
+  <a href="/resume/" >Resume</a>
+  <a href="/about/" >About</a>
+  <a href="/contact/" >Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main-content" tabindex="-1" class="wrap">
+      <h1 id="linktotale--youtube-cartoon-to-picture-book-cli">LinkToTale — YouTube cartoon to picture book (CLI)</h1>
+
+<h2 id="tldr">TL;DR</h2>
+
+<p>Paste a YouTube link, get a self-contained HTML picture book. The CLI downloads the cartoon, extracts frames, detects scene changes, and uses <strong>GPT-4.1</strong> to write a <strong>25–35 page children’s story</strong> around the real timeline — in both Polish and English. Cost: <strong>~$0.50</strong> per 12-minute cartoon.</p>
+
+<h2 id="context">Context</h2>
+
+<ul>
+  <li>Stack: Node.js, <code class="language-plaintext highlighter-rouge">yt-dlp</code>, <code class="language-plaintext highlighter-rouge">ffmpeg</code>, <code class="language-plaintext highlighter-rouge">sharp</code>, OpenAI API (GPT-4.1 + GPT-4.1-mini Vision)</li>
+  <li>Single file: ~1,100 lines, no framework, no bundler</li>
+  <li>Output: two standalone HTML files (<code class="language-plaintext highlighter-rouge">book-pl.html</code>, <code class="language-plaintext highlighter-rouge">book-en.html</code>) — open in a browser, no server needed</li>
+  <li>Personal project, <a href="https://github.com/rafalmcichon/linktotale">MIT licensed</a></li>
+</ul>
+
+<h2 id="what-i-observed">What I observed</h2>
+
+<p>My son loves his cartoons. But even 10–15 minutes a day was enough to make him noticeably restless afterward — harder to settle, harder to focus. Cutting cartoons entirely felt unrealistic (he already knew the characters, the stories meant something to him).</p>
+
+<p>What worked better: we’d read a book about the same characters, then watch a short clip — or reverse the order. Afterward we’d rebuild the scenes with Lego, acting out what happened. That loop — <strong>read, watch, play</strong> — kept him calm and engaged in a way that pure screen time never did.</p>
+
+<p>The gap: the stories he loved existed only as video. There was no book version to hold, read together, or use as a starting point for play.</p>
+
+<h2 id="what-i-built">What I built</h2>
+
+<p>A CLI pipeline that turns any subtitled YouTube cartoon into a picture book:</p>
+
+<h3 id="1-download--extract">1) Download + extract</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">yt-dlp</code> pulls the video and both PL/EN subtitle tracks</li>
+  <li><code class="language-plaintext highlighter-rouge">ffmpeg</code> extracts one frame per second and overlays subtitle text on matching frames</li>
+</ul>
+
+<h3 id="2-scene-intelligence">2) Scene intelligence</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">sharp</code> computes perceptual hashes (16x16 grayscale) to detect scene changes (&gt;12% diff)</li>
+  <li>Dialogue gaps (3+ seconds of silence) are identified — these are action-only moments that need narration</li>
+</ul>
+
+<h3 id="3-ai-story-generation">3) AI story generation</h3>
+<ul>
+  <li>GPT-4.1-mini Vision analyzes candidate frames: is this important (new action, emotion, location) or skippable (logo, credits, black)?</li>
+  <li>GPT-4.1 receives the full chronological timeline + up to 10 key frames, then writes a proper children’s story as JSON (one page = one frame + text)</li>
+  <li>A second Vision pass verifies each page got the best-matching frame, not just the default pick</li>
+</ul>
+
+<h3 id="4-html-output">4) HTML output</h3>
+<ul>
+  <li>Two self-contained HTML books with page-by-page navigation, keyboard/swipe support, animated cover, and a styled “The End” screen</li>
+</ul>
+
+<h2 id="what-makes-it-work">What makes it work</h2>
+
+<ul>
+  <li><strong>Factual accuracy</strong> — the AI prompts enforce chronological fidelity and penalize hallucination; the story follows what actually happens in the cartoon</li>
+  <li><strong>Vision verification</strong> — every page is checked against surrounding frames to ensure visual-text alignment</li>
+  <li><strong>Caching</strong> — frame analyses are stored in JSON so reruns skip redundant API calls</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">--book</code> flag</strong> — regenerate just the book without re-downloading or re-extracting</li>
+</ul>
+
+<h2 id="results">Results</h2>
+
+<ul>
+  <li>A 12-minute cartoon produces a complete bilingual picture book in under 10 minutes for <strong>~$0.50</strong></li>
+  <li>The books are something we actually use — we read them at bedtime, and my son recognizes every scene</li>
+  <li>The read-watch-play loop became easier to sustain because the “read” part finally existed</li>
+</ul>
+
+<h2 id="what-i-took-from-it">What I took from it</h2>
+
+<ul>
+  <li>The problem wasn’t screen time in the abstract. It was that the content my son loved had no form he could interact with away from the screen.</li>
+  <li>Converting <em>existing</em> stories into books — ones he already had feelings about — worked better than trying to replace them with something new.</li>
+  <li>Minimal tech was the right call. Single file, no dependencies beyond what’s needed. Complexity was wrong here — for the tool and for the parenting approach behind it.</li>
+</ul>
+
+<h2 id="what-id-do-next">What I’d do next</h2>
+
+<ul>
+  <li>Add support for cartoons without subtitles (pure vision-based narration from frame analysis alone).</li>
+  <li>Experiment with page-level audio narration (text-to-speech) for kids who can’t read yet.</li>
+  <li>Let the child pick a character and generate a “what happens next” continuation as a new book.</li>
+  <li>Package it as a simple web app so non-technical parents can use it.</li>
+</ul>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p class="muted">
+      © 2026 Rafal M Cichon ·
+      <a href="/site/">Site</a> ·
+      <a href="/feed.xml">RSS</a> ·
+      <a href="/sitemap.xml">Sitemap</a> ·
+      <a href="/llms.txt">LLMs</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>
