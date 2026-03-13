@@ -126,13 +126,14 @@
 
 <p>Paste a YouTube link, get a self-contained HTML picture book. The CLI downloads the cartoon, extracts frames, detects scene changes, and uses <strong>GPT-4.1</strong> to write a <strong>25–35 page children’s story</strong> around the real timeline — in both Polish and English. Cost: <strong>~$0.50</strong> per 12-minute cartoon.</p>
 
+<p><strong>Source code:</strong> <a href="https://github.com/rafalmcichon/linktotale">github.com/rafalmcichon/linktotale</a> (MIT license)</p>
+
 <h2 id="context">Context</h2>
 
 <ul>
   <li>Stack: Node.js, <code class="language-plaintext highlighter-rouge">yt-dlp</code>, <code class="language-plaintext highlighter-rouge">ffmpeg</code>, <code class="language-plaintext highlighter-rouge">sharp</code>, OpenAI API (GPT-4.1 + GPT-4.1-mini Vision)</li>
   <li>Single file: ~1,100 lines, no framework, no bundler</li>
   <li>Output: two standalone HTML files (<code class="language-plaintext highlighter-rouge">book-pl.html</code>, <code class="language-plaintext highlighter-rouge">book-en.html</code>) — open in a browser, no server needed</li>
-  <li>Personal project, <a href="https://github.com/rafalmcichon/linktotale">MIT licensed</a></li>
 </ul>
 
 <h2 id="what-i-observed">What I observed</h2>
