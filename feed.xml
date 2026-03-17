@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://rafalmcichon.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://rafalmcichon.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-03-12T20:52:27-04:00</updated><id>https://rafalmcichon.com/feed.xml</id><title type="html">Rafal M Cichon</title><subtitle>Senior Digital Growth &amp; Web Engineer — Shopify UX, CRO, SEO, performance, accessibility.</subtitle><entry><title type="html">Measuring Shopify UX changes (a minimal CRO plan)</title><link href="https://rafalmcichon.com/notes/measuring-shopify-ux-changes/" rel="alternate" type="text/html" title="Measuring Shopify UX changes (a minimal CRO plan)" /><published>2026-02-08T15:00:00-05:00</published><updated>2026-02-08T15:00:00-05:00</updated><id>https://rafalmcichon.com/notes/measuring-shopify-ux-changes</id><content type="html" xml:base="https://rafalmcichon.com/notes/measuring-shopify-ux-changes/"><![CDATA[<h2 id="tldr">TL;DR</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://rafalmcichon.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://rafalmcichon.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-03-16T23:36:56-04:00</updated><id>https://rafalmcichon.com/feed.xml</id><title type="html">Rafal M Cichon</title><subtitle>Senior Digital Growth &amp; Web Engineer — Shopify UX, CRO, SEO, performance, accessibility.</subtitle><entry><title type="html">Measuring Shopify UX changes (a minimal CRO plan)</title><link href="https://rafalmcichon.com/notes/measuring-shopify-ux-changes/" rel="alternate" type="text/html" title="Measuring Shopify UX changes (a minimal CRO plan)" /><published>2026-02-08T15:00:00-05:00</published><updated>2026-02-08T15:00:00-05:00</updated><id>https://rafalmcichon.com/notes/measuring-shopify-ux-changes</id><content type="html" xml:base="https://rafalmcichon.com/notes/measuring-shopify-ux-changes/"><![CDATA[<h2 id="tldr">TL;DR</h2>
 <p>You don’t need perfect experimentation to improve conversion.<br />
 You need a <strong>consistent baseline</strong>, a <strong>repeatable method</strong>, and a habit of documenting confounders.</p>
 
@@ -76,13 +76,13 @@ You need a <strong>consistent baseline</strong>, a <strong>repeatable method</st
 
 <h2 id="related">Related</h2>
 <ul>
-  <li>Shopify UX case study: <a href="/projects/shopify-ux-conversion-50/">~50% conversion lift</a></li>
+  <li>Shopify UX case study: <a href="/projects/shopify-ux-improvements/">+34% conversion rate (0.35% → 0.46%)</a></li>
   <li>Cart/checkout patterns: <a href="/notes/cart-checkout-bundles-coupons/">bundles + coupon visibility</a></li>
 </ul>]]></content><author><name></name></author><category term="notes" /><summary type="html"><![CDATA[A simple measurement plan for teams that ship weekly and can’t A/B test everything.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://rafalmcichon.com/assets/og-default.png" /><media:content medium="image" url="https://rafalmcichon.com/assets/og-default.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Cart &amp;amp; checkout: bundles + coupon visibility (patterns that lift revenue)</title><link href="https://rafalmcichon.com/notes/cart-checkout-bundles-coupons/" rel="alternate" type="text/html" title="Cart &amp;amp; checkout: bundles + coupon visibility (patterns that lift revenue)" /><published>2026-02-08T13:30:00-05:00</published><updated>2026-02-08T13:30:00-05:00</updated><id>https://rafalmcichon.com/notes/cart-checkout-bundles-coupons</id><content type="html" xml:base="https://rafalmcichon.com/notes/cart-checkout-bundles-coupons/"><![CDATA[<h2 id="tldr">TL;DR</h2>
 <p>Bundles and discounts don’t work if users discover them too late.<br />
 Cart is the best place to surface value because intent is already high.</p>
 
-<p>This note is based on a Shopify project where making bundles + coupon behavior clearer increased sales significantly (see: <a href="/projects/shopify-bundles-coupons-sales-100/">case study</a>).</p>
+<p>This note is based on a Shopify project where making bundles + coupon behavior clearer increased sales significantly (see: <a href="/projects/shopify-bundles-coupons/">case study</a>).</p>
 
 <h2 id="why-cart-is-the-leverage-point">Why cart is the leverage point</h2>
 <p>By the time someone is in cart:</p>
@@ -149,7 +149,7 @@ Even if the checkout has a field, uncertainty starts earlier.</p>
 <p>Conversion usually drops for boring reasons: uncertainty, hidden info, and too many small frictions.<br />
 Before redesigning anything, run a <strong>friction-first checklist</strong> and ship the simplest fixes.</p>
 
-<p>This checklist comes from real Shopify UX work where targeted changes produced large lifts (see: <a href="/projects/shopify-ux-conversion-50/">case study</a>).</p>
+<p>This checklist comes from real Shopify UX work where targeted changes produced large lifts (see: <a href="/projects/shopify-ux-improvements/">case study</a>).</p>
 
 <h2 id="1-first-screen-can-a-new-user-answer-what-is-this-in-5-seconds">1) First screen: can a new user answer “what is this” in 5 seconds?</h2>
 <ul>

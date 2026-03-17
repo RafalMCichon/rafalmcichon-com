@@ -12,8 +12,8 @@ Primary pages:
 - /contact/ - ways to reach me
 
 Best starting points:
-- /projects/shopify-ux-conversion-50/
-- /projects/shopify-bundles-coupons-sales-100/
+- /projects/shopify-ux-improvements/
+- /projects/shopify-bundles-coupons/
 - /notes/writing-pages-llms-can-cite/
 - /notes/inventory-stability-is-a-growth-lever/
 - /notes/shopify-ux-friction-checklist/
