@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Carpal Tunnel Syndrome Test: Mobile Diagnostic Web App</title><meta name="description" content="A mobile web app that screens for carpal tunnel syndrome using a 30-second thumb-tapping test — based on peer-reviewed research, built on Cloudflare Workers + D1.">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Rafal M Cichon">
+
+<link rel="canonical" href="https://rafalmcichon.com/projects/carpal-tunnel-syndrome-test/">
+
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="/assets/site.css">
+
+<!-- Favicons -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="Rafal M Cichon">
+<meta property="og:title" content="Carpal Tunnel Syndrome Test: Mobile Diagnostic Web App">
+<meta property="og:description" content="A mobile web app that screens for carpal tunnel syndrome using a 30-second thumb-tapping test — based on peer-reviewed research, built on Cloudflare Workers + D1.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rafalmcichon.com/projects/carpal-tunnel-syndrome-test/">
+<meta property="og:image" content="https://rafalmcichon.com/assets/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Carpal Tunnel Syndrome Test: Mobile Diagnostic Web App">
+<meta name="twitter:description" content="A mobile web app that screens for carpal tunnel syndrome using a 30-second thumb-tapping test — based on peer-reviewed research, built on Cloudflare Workers + D1.">
+<meta name="twitter:image" content="https://rafalmcichon.com/assets/og-default.png">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Rafal M Cichon",
+  "url": "https://rafalmcichon.com/"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rafal M Cichon",
+  "url": "https://rafalmcichon.com/",
+  "jobTitle": "Senior Digital Growth & Web Engineer",
+  "knowsAbout": [
+    "Shopify UX",
+    "Conversion rate optimization (CRO)",
+    "Technical SEO",
+    "Core Web Vitals",
+    "Web performance",
+    "Web accessibility"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Orlando Foods",
+    "url": "https://orlandofoods.com/"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/rafalmcichon/",
+    "https://github.com/RafalMCichon",
+    "https://twitter.com/rafalmcichon",
+    "https://rafalmcichon.dev/"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Carpal Tunnel Syndrome Test — mobile diagnostic tool",
+  "description": "A mobile web app that screens for carpal tunnel syndrome using a 30-second thumb-tapping test — based on peer-reviewed research, built on Cloudflare Workers + D1.",
+  "author": { "@type": "Person", "name": "Rafal M Cichon", "url": "https://rafalmcichon.com/" },
+  "publisher": { "@type": "Person", "name": "Rafal M Cichon", "url": "https://rafalmcichon.com/" },
+  "datePublished": "2024-01-15T00:00:00-05:00",
+  "dateModified": "2024-01-15T00:00:00-05:00",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rafalmcichon.com/projects/carpal-tunnel-syndrome-test/" },
+  "image": ["https://rafalmcichon.com/assets/og-default.png"]
+}
+</script>
+
+
+<!-- RSS feed -->
+<link rel="alternate" type="application/rss+xml" title="Rafal M Cichon" href="https://rafalmcichon.com/feed.xml">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-STQ5M8CE0S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-STQ5M8CE0S');
+</script>
+
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="Home">Rafal M Cichon</a>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="/projects/" >Projects</a>
+  <a href="/notes/" >Notes</a>
+  <a href="/log/" >Log</a>
+  <a href="/resume/" >Resume</a>
+  <a href="/about/" >About</a>
+  <a href="/contact/" >Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main-content" tabindex="-1" class="wrap">
+      <h1 id="carpal-tunnel-syndrome-test--mobile-diagnostic-tool">Carpal Tunnel Syndrome Test — mobile diagnostic tool</h1>
+
+<h2 id="tldr">TL;DR</h2>
+
+<p>A mobile web app at <strong><a href="https://carpaltunnelsyndrometest.com">carpaltunnelsyndrometest.com</a></strong> that lets anyone screen themselves for carpal tunnel syndrome in 30 seconds. The user taps the screen with their thumb as fast as they can; the app measures tap count, hold duration, and touch precision — then compares results against clinical norms from peer-reviewed research.</p>
+
+<p><strong>Source code:</strong> <a href="https://github.com/rafalmcichon/carpaltunnelsyndrometest">github.com/rafalmcichon/carpaltunnelsyndrometest</a> (MIT license)</p>
+
+<h2 id="context">Context</h2>
+
+<ul>
+  <li>Stack: vanilla JavaScript (ES modules), Cloudflare Workers, Cloudflare D1 (SQLite), PWA</li>
+  <li>Based on peer-reviewed research — approved by Dr. Sebastian Szklener, who led the original study</li>
+  <li>Internationalization-ready (i18n framework with full English translation set)</li>
+  <li>Mobile-first, touch-event driven with <code class="language-plaintext highlighter-rouge">performance.now()</code> precision timing</li>
+</ul>
+
+<h2 id="what-i-observed">What I observed</h2>
+
+<p>Carpal tunnel syndrome is common, progressive, and often ignored until symptoms become severe. The clinical tests exist, but they require a doctor visit — which most people skip when symptoms are mild (“my hand feels a bit tingly sometimes”). There was no simple, credible self-check people could do at home.</p>
+
+<p>The underlying research showed that CTS patients have measurably different tapping patterns: slower hold times, fewer taps, and less precise touch positions. That signal is strong enough to detect through a phone screen.</p>
+
+<h2 id="what-i-built">What I built</h2>
+
+<p>A four-step diagnostic flow:</p>
+
+<h3 id="1-education">1) Education</h3>
+<p>Landing page explains the three key CTS symptoms (numbness, lack of precision, weakness) with visual guides. Links to scientific source material for credibility.</p>
+
+<h3 id="2-preparation">2) Preparation</h3>
+<p>Step-by-step instructions: sit at a desk, place phone in palm, position thumb on screen center. Each step has an illustration. The goal is consistent test conditions.</p>
+
+<h3 id="3-30-second-tapping-test">3) 30-second tapping test</h3>
+<p>The user taps the screen center with their thumb as many times as possible. The app captures:</p>
+<ul>
+  <li>Individual tap timestamps (millisecond precision via <code class="language-plaintext highlighter-rouge">performance.now()</code>)</li>
+  <li>Touch contact positions (x, y coordinates)</li>
+  <li>Hold duration for each tap</li>
+  <li>Device orientation (portrait mode enforced)</li>
+  <li>Vibration feedback on each tap</li>
+</ul>
+
+<h3 id="4-results--diagnosis">4) Results + diagnosis</h3>
+<p>Displays total taps, average hold duration, and a histogram of tap-time distribution. Compares against clinical norms (200–400ms average hold time for healthy individuals). Classification:</p>
+<ul>
+  <li><strong>Healthy:</strong> average ≤200ms and 80+ taps</li>
+  <li><strong>Borderline:</strong> average 200–400ms or 50–80 taps — recommends monitoring</li>
+  <li><strong>Likely CTS:</strong> average &gt;400ms or &lt;50 taps — recommends doctor visit</li>
+</ul>
+
+<p>A persistent banner recommends seeing a doctor for concerning results. A clear disclaimer states no online test replaces a medical examination.</p>
+
+<h2 id="architecture">Architecture</h2>
+
+<ul>
+  <li><strong>Frontend:</strong> vanilla JS modules, no framework, no bundler. Touch events, progress bar, rotation detection, PWA manifest</li>
+  <li><strong>Backend:</strong> Cloudflare Workers (Pages Functions) with D1 database</li>
+  <li><strong>Data captured per test:</strong> tap count, average/median/std dev/min/max hold times, full tap-times JSON, touch positions JSON, device info, screen dimensions, language, geolocation (from Cloudflare edge), timestamp</li>
+  <li><strong>Rate limiting:</strong> max one result submission per 10 seconds</li>
+  <li><strong>API key auth</strong> for admin data access</li>
+</ul>
+
+<h2 id="what-makes-it-work">What makes it work</h2>
+
+<ul>
+  <li><strong>Scientific grounding</strong> — the diagnostic thresholds come from research, not guesswork. The test creator reviewed and approved the implementation.</li>
+  <li><strong>Precision timing</strong> — <code class="language-plaintext highlighter-rouge">performance.now()</code> instead of <code class="language-plaintext highlighter-rouge">Date.now()</code> gives sub-millisecond accuracy, which matters when the diagnostic signal is in hold-duration differences.</li>
+  <li><strong>Minimal friction</strong> — four screens, one action (tap), immediate result. No signup, no app install (PWA-installable optionally).</li>
+  <li><strong>Rich telemetry</strong> — every test stores enough data for future research: individual tap times, positions, device info, location.</li>
+</ul>
+
+<h2 id="what-i-took-from-it">What I took from it</h2>
+
+<ul>
+  <li>Medical domain forces responsible design decisions. The disclaimer, the “see a doctor” banner, the conservative thresholds — all necessary. Shipping a health tool that overpromises is worse than not shipping at all.</li>
+  <li>Cloudflare Workers + D1 was the right call for something that needs to be globally fast with zero maintenance. No servers to manage, no cold starts, no database connection pools.</li>
+  <li>Touch events are surprisingly rich. The difference between a healthy tap pattern and a CTS tap pattern is visible even in raw data — which is what makes the test work.</li>
+</ul>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p class="muted">
+      © 2026 Rafal M Cichon ·
+      <a href="/site/">Site</a> ·
+      <a href="/feed.xml">RSS</a> ·
+      <a href="/sitemap.xml">Sitemap</a> ·
+      <a href="/llms.txt">LLMs</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>
