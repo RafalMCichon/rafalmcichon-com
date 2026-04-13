@@ -124,24 +124,25 @@
 
 <h2 id="tldr">TL;DR</h2>
 
-<p>A mobile web app at <strong><a href="https://carpaltunnelsyndrometest.com">carpaltunnelsyndrometest.com</a></strong> that lets anyone screen themselves for carpal tunnel syndrome in 30 seconds. The user taps the screen with their thumb as fast as they can; the app measures tap count, hold duration, and touch precision — then compares results against clinical norms from peer-reviewed research.</p>
+<p>A mobile web app at <strong><a href="https://carpaltunnelsyndrometest.com">carpaltunnelsyndrometest.com</a></strong> that lets anyone screen themselves for carpal tunnel syndrome in 30 seconds. The diagnostic method, thresholds, and clinical interpretation come from <a href="https://www.researchgate.net/publication/340010038">peer-reviewed research</a> by Dr. Sebastian Szklener. I built the application — the entire front-end, back-end, and deployment.</p>
 
 <p><strong>Source code:</strong> <a href="https://github.com/rafalmcichon/carpaltunnelsyndrometest">github.com/rafalmcichon/carpaltunnelsyndrometest</a> (MIT license)</p>
 
 <h2 id="context">Context</h2>
 
 <ul>
+  <li><strong>Research:</strong> Dr. Sebastian Szklener’s study demonstrated that CTS patients have measurably different tapping patterns (slower hold times, fewer taps, less precise touch positions). He defined the diagnostic thresholds and approved this implementation. (<a href="https://www.researchgate.net/publication/340010038">publication</a>)</li>
+  <li><strong>My role:</strong> design and build the entire application — UX flow, touch-event capture, data pipeline, serverless back-end, deployment</li>
   <li>Stack: vanilla JavaScript (ES modules), Cloudflare Workers, Cloudflare D1 (SQLite), PWA</li>
-  <li>Based on peer-reviewed research — approved by Dr. Sebastian Szklener, who led the original study</li>
   <li>Internationalization-ready (i18n framework with full English translation set)</li>
   <li>Mobile-first, touch-event driven with <code class="language-plaintext highlighter-rouge">performance.now()</code> precision timing</li>
 </ul>
 
-<h2 id="what-i-observed">What I observed</h2>
+<h2 id="the-research">The research</h2>
 
-<p>Carpal tunnel syndrome is common, progressive, and often ignored until symptoms become severe. The clinical tests exist, but they require a doctor visit — which most people skip when symptoms are mild (“my hand feels a bit tingly sometimes”). There was no simple, credible self-check people could do at home.</p>
+<p>Dr. Szklener’s study showed that carpal tunnel patients produce a distinct tapping signature: slower hold times, fewer total taps, and less precise touch positions compared to healthy individuals. The signal is strong enough to detect through a phone screen. The clinical norms (200–400ms average hold time for healthy individuals) and the classification thresholds all come from this research.</p>
 
-<p>The underlying research showed that CTS patients have measurably different tapping patterns: slower hold times, fewer taps, and less precise touch positions. That signal is strong enough to detect through a phone screen.</p>
+<p>The gap: the research existed, but there was no publicly available tool that let someone take the test at home on their own phone.</p>
 
 <h2 id="what-i-built">What I built</h2>
 
@@ -164,7 +165,7 @@
 </ul>
 
 <h3 id="4-results--diagnosis">4) Results + diagnosis</h3>
-<p>Displays total taps, average hold duration, and a histogram of tap-time distribution. Compares against clinical norms (200–400ms average hold time for healthy individuals). Classification:</p>
+<p>Displays total taps, average hold duration, and a histogram of tap-time distribution. Compares against the clinical norms from Dr. Szklener’s research. Classification:</p>
 <ul>
   <li><strong>Healthy:</strong> average ≤200ms and 80+ taps</li>
   <li><strong>Borderline:</strong> average 200–400ms or 50–80 taps — recommends monitoring</li>
@@ -186,7 +187,7 @@
 <h2 id="what-makes-it-work">What makes it work</h2>
 
 <ul>
-  <li><strong>Scientific grounding</strong> — the diagnostic thresholds come from research, not guesswork. The test creator reviewed and approved the implementation.</li>
+  <li><strong>Scientific grounding</strong> — the diagnostic method, thresholds, and interpretation come entirely from Dr. Szklener’s <a href="https://www.researchgate.net/publication/340010038">peer-reviewed research</a>. My job was to implement it faithfully.</li>
   <li><strong>Precision timing</strong> — <code class="language-plaintext highlighter-rouge">performance.now()</code> instead of <code class="language-plaintext highlighter-rouge">Date.now()</code> gives sub-millisecond accuracy, which matters when the diagnostic signal is in hold-duration differences.</li>
   <li><strong>Minimal friction</strong> — four screens, one action (tap), immediate result. No signup, no app install (PWA-installable optionally).</li>
   <li><strong>Rich telemetry</strong> — every test stores enough data for future research: individual tap times, positions, device info, location.</li>
@@ -195,9 +196,9 @@
 <h2 id="what-i-took-from-it">What I took from it</h2>
 
 <ul>
-  <li>Medical domain forces responsible design decisions. The disclaimer, the “see a doctor” banner, the conservative thresholds — all necessary. Shipping a health tool that overpromises is worse than not shipping at all.</li>
+  <li>Building for a medical domain forces responsible design decisions. The disclaimer, the “see a doctor” banner, the conservative thresholds from the research — all necessary. Shipping a health tool that overpromises is worse than not shipping at all.</li>
   <li>Cloudflare Workers + D1 was the right call for something that needs to be globally fast with zero maintenance. No servers to manage, no cold starts, no database connection pools.</li>
-  <li>Touch events are surprisingly rich. The difference between a healthy tap pattern and a CTS tap pattern is visible even in raw data — which is what makes the test work.</li>
+  <li>Touch events are surprisingly rich. The difference between a healthy tap pattern and a CTS tap pattern is visible even in raw data — which is what makes the research-based approach work.</li>
 </ul>
 
 
