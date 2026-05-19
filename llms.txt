@@ -14,6 +14,7 @@ Primary pages:
 Best starting points:
 - /projects/shopify-ux-improvements/
 - /projects/shopify-bundles-coupons/
+- /projects/marble-responsive-design/
 - /notes/writing-pages-llms-can-cite/
 - /notes/inventory-stability-is-a-growth-lever/
 - /notes/shopify-ux-friction-checklist/
