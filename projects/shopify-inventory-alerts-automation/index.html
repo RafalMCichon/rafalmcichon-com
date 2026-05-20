@@ -149,7 +149,15 @@ When a SKU crossed its threshold, the system created an alert and generated a <s
 
 <h2 id="key-lesson">Key lesson</h2>
 <p>The strongest automations don’t try to be fully autonomous — they reduce time-to-action and make the right action easy, while keeping accountability with a human owner.</p>
+<h2 id="shopify-flow-automations">Shopify Flow automations</h2>
+<p>Beyond the core alerting loop, I built supporting automations in Shopify Flow:</p>
 
+<ul>
+  <li><strong>Low-stock notifications:</strong> Flow triggers when inventory crosses tier thresholds, sending alerts to the right people with context (SKU, current stock, velocity, suggested action) — no manual monitoring needed.</li>
+  <li><strong>Auto-tagging by velocity tier:</strong> products are automatically tagged as <code class="language-plaintext highlighter-rouge">high</code> / <code class="language-plaintext highlighter-rouge">medium</code> / <code class="language-plaintext highlighter-rouge">low</code> velocity based on recent sales data. Tags stay current without manual reclassification, and they drive the alert thresholds, reporting filters, and merchandising decisions.</li>
+</ul>
+
+<p>These flows removed the manual overhead of maintaining velocity tiers and monitoring stock levels — the system self-maintains and only surfaces decisions that need a human.</p>
 <h2 id="what-id-do-next">What I’d do next</h2>
 
 <ul>
