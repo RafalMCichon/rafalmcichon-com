@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Shopify Performance: Lighthouse 41→95, SEO 77→100 — Case Study</title><meta name="description" content="A systematic performance and technical SEO cleanup on a Shopify store — Lighthouse Performance from 41 to 95, SEO from 77 to 100, and site health errors from 105 to 1.">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Rafal M Cichon">
+
+<link rel="canonical" href="https://rafalmcichon.com/projects/shopify-performance-seo/">
+
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="/assets/site.css">
+
+<!-- Favicons -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="Rafal M Cichon">
+<meta property="og:title" content="Shopify Performance: Lighthouse 41→95, SEO 77→100 — Case Study">
+<meta property="og:description" content="A systematic performance and technical SEO cleanup on a Shopify store — Lighthouse Performance from 41 to 95, SEO from 77 to 100, and site health errors from 105 to 1.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rafalmcichon.com/projects/shopify-performance-seo/">
+<meta property="og:image" content="https://rafalmcichon.com/assets/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shopify Performance: Lighthouse 41→95, SEO 77→100 — Case Study">
+<meta name="twitter:description" content="A systematic performance and technical SEO cleanup on a Shopify store — Lighthouse Performance from 41 to 95, SEO from 77 to 100, and site health errors from 105 to 1.">
+<meta name="twitter:image" content="https://rafalmcichon.com/assets/og-default.png">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Rafal M Cichon",
+  "url": "https://rafalmcichon.com/"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rafal M Cichon",
+  "url": "https://rafalmcichon.com/",
+  "jobTitle": "Senior Digital Growth & Web Engineer",
+  "knowsAbout": [
+    "Shopify UX",
+    "Conversion rate optimization (CRO)",
+    "Technical SEO",
+    "Core Web Vitals",
+    "Web performance",
+    "Web accessibility"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Orlando Foods",
+    "url": "https://orlandofoods.com/"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/rafalmcichon/",
+    "https://github.com/RafalMCichon",
+    "https://twitter.com/rafalmcichon",
+    "https://rafalmcichon.dev/"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Shopify performance + technical SEO (Lighthouse 41 → 95, SEO 77 → 100)",
+  "description": "A systematic performance and technical SEO cleanup on a Shopify store — Lighthouse Performance from 41 to 95, SEO from 77 to 100, and site health errors from 105 to 1.",
+  "author": { "@type": "Person", "name": "Rafal M Cichon", "url": "https://rafalmcichon.com/" },
+  "publisher": { "@type": "Person", "name": "Rafal M Cichon", "url": "https://rafalmcichon.com/" },
+  "datePublished": "2026-02-22T00:00:00-05:00",
+  "dateModified": "2026-02-22T00:00:00-05:00",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rafalmcichon.com/projects/shopify-performance-seo/" },
+  "image": ["https://rafalmcichon.com/assets/og-default.png"]
+}
+</script>
+
+
+<!-- RSS feed -->
+<link rel="alternate" type="application/rss+xml" title="Rafal M Cichon" href="https://rafalmcichon.com/feed.xml">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-STQ5M8CE0S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-STQ5M8CE0S');
+</script>
+
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="Home">Rafal M Cichon</a>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="/projects/" >Projects</a>
+  <a href="/notes/" >Notes</a>
+  <a href="/log/" >Log</a>
+  <a href="/resume/" >Resume</a>
+  <a href="/about/" >About</a>
+  <a href="/contact/" >Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main-content" tabindex="-1" class="wrap">
+      <h1 id="shopify-performance--technical-seo-lighthouse-41--95-seo-77--100">Shopify performance + technical SEO (Lighthouse 41 → 95, SEO 77 → 100)</h1>
+
+<blockquote>
+  <p><strong>Note:</strong> This case study is intentionally anonymized. Company and internal tooling are omitted. Numbers are from Lighthouse and Semrush (measured period: Nov–Dec 2025 and ongoing).</p>
+</blockquote>
+
+<h2 id="tldr">TL;DR</h2>
+<p>A Shopify store had poor Lighthouse scores and over 100 site health errors. Through systematic cleanup — scripts, images, structured data, crawlability — I brought <strong>Performance from 41 to 95</strong>, <strong>SEO from 77 to 100</strong>, and reduced <strong>site health errors from 105 to 1</strong>.</p>
+
+<h2 id="starting-point">Starting point</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Before</th>
+      <th>After</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Performance</td>
+      <td>41</td>
+      <td><strong>95</strong></td>
+    </tr>
+    <tr>
+      <td>Accessibility</td>
+      <td>82</td>
+      <td><strong>84</strong></td>
+    </tr>
+    <tr>
+      <td>Best Practices</td>
+      <td>100</td>
+      <td><strong>96</strong></td>
+    </tr>
+    <tr>
+      <td>SEO</td>
+      <td>77</td>
+      <td><strong>100</strong></td>
+    </tr>
+    <tr>
+      <td>Site Health (Semrush)</td>
+      <td>74% (105 errors)</td>
+      <td><strong>86%+ (1 error)</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The store was functional but technically neglected. Scripts accumulated over time, images weren’t optimized, meta tags were incomplete, and crawl issues were never cleaned up.</p>
+
+<h2 id="what-i-fixed">What I fixed</h2>
+
+<h3 id="performance-41--95">Performance (41 → 95)</h3>
+<ul>
+  <li>Audited and removed unnecessary third-party scripts — each app or tracking tag that stayed loaded on every page was a performance cost</li>
+  <li>Improved image strategy: proper sizing, lazy loading below the fold, modern formats where Shopify supported them</li>
+  <li>Reduced layout shifts (CLS) that made the page feel unstable during load</li>
+  <li>Deferred non-critical JavaScript so the main content painted faster</li>
+</ul>
+
+<h3 id="seo-77--100">SEO (77 → 100)</h3>
+<ul>
+  <li>Fixed missing and duplicate meta descriptions</li>
+  <li>Corrected heading hierarchy (H1/H2/H3 — no skipped levels)</li>
+  <li>Added structured data where it was missing</li>
+  <li>Cleaned up canonical tags and ensured proper indexation signals</li>
+  <li>Fixed crawl errors flagged by both Lighthouse and Semrush</li>
+</ul>
+
+<h3 id="site-health-105-errors--1">Site Health (105 errors → 1)</h3>
+<ul>
+  <li>Worked through Semrush’s error list systematically — broken links, redirect chains, missing alt text, orphan pages</li>
+  <li>Prioritized by impact: errors first, then warnings, then notices</li>
+  <li>Monitored daily during the cleanup window to catch regressions</li>
+</ul>
+
+<h2 id="how-i-worked-through-it">How I worked through it</h2>
+<p>This wasn’t a single sprint — it was a deliberate, phased approach:</p>
+
+<ol>
+  <li><strong>Baseline:</strong> ran Lighthouse and Semrush, documented starting scores</li>
+  <li><strong>Scripts and performance first</strong> — the biggest win with the least content risk</li>
+  <li><strong>SEO hygiene second</strong> — structured data, meta tags, canonicals</li>
+  <li><strong>Site health cleanup third</strong> — systematic error reduction</li>
+  <li><strong>Re-measure after each phase</strong> — to confirm impact and catch regressions</li>
+</ol>
+
+<p>The mid-point check showed Performance at 47 and SEO at 92 — progress, but scripts still needed more work. The final pass got Performance to 95 and SEO to 100.</p>
+
+<h2 id="what-i-took-from-it">What I took from it</h2>
+<ul>
+  <li>Performance debt accumulates silently on Shopify — every app install leaves scripts behind, even after uninstall.</li>
+  <li>Lighthouse and Semrush measure different things. Both matter. High Lighthouse scores with poor site health (or vice versa) means the job isn’t done.</li>
+  <li>The hardest part is discipline: not installing the next quick-fix app before cleaning up what’s already there.</li>
+</ul>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p class="muted">
+      © 2026 Rafal M Cichon ·
+      <a href="/site/">Site</a> ·
+      <a href="/feed.xml">RSS</a> ·
+      <a href="/sitemap.xml">Sitemap</a> ·
+      <a href="/llms.txt">LLMs</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>
