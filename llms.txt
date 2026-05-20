@@ -15,6 +15,7 @@ Best starting points:
 - /projects/shopify-ux-improvements/
 - /projects/shopify-bundles-coupons/
 - /projects/marble-responsive-design/
+- /projects/sanity-cms-marketing-layer/
 - /notes/writing-pages-llms-can-cite/
 - /notes/inventory-stability-is-a-growth-lever/
 - /notes/shopify-ux-friction-checklist/
