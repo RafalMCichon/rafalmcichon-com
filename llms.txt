@@ -21,3 +21,4 @@ Best starting points:
 - /notes/shopify-ux-friction-checklist/
 - /notes/cart-checkout-bundles-coupons/
 - /notes/measuring-shopify-ux-changes/
+- /notes/migrating-a-live-member-community/

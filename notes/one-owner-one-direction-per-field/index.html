@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Don't sync everything: one owner, one direction per field · Rafal M Cichon</title><meta name="description" content="When you bridge an ERP and a CMS, the cleanest contract is to make every field owned by exactly one system, syncing in exactly one direction.">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Rafal M Cichon">
+
+<link rel="canonical" href="https://rafalmcichon.com/notes/one-owner-one-direction-per-field/">
+
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="/assets/site.css">
+
+<!-- Favicons -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="Rafal M Cichon">
+<meta property="og:title" content="Don&#39;t sync everything: one owner, one direction per field">
+<meta property="og:description" content="When you bridge an ERP and a CMS, the cleanest contract is to make every field owned by exactly one system, syncing in exactly one direction.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rafalmcichon.com/notes/one-owner-one-direction-per-field/">
+<meta property="og:image" content="https://rafalmcichon.com/assets/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Don&#39;t sync everything: one owner, one direction per field">
+<meta name="twitter:description" content="When you bridge an ERP and a CMS, the cleanest contract is to make every field owned by exactly one system, syncing in exactly one direction.">
+<meta name="twitter:image" content="https://rafalmcichon.com/assets/og-default.png">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Rafal M Cichon",
+  "url": "https://rafalmcichon.com/"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rafal M Cichon",
+  "url": "https://rafalmcichon.com/",
+  "jobTitle": "Senior Digital Growth & Web Engineer",
+  "knowsAbout": [
+    "Shopify UX",
+    "Conversion rate optimization (CRO)",
+    "Technical SEO",
+    "Core Web Vitals",
+    "Web performance",
+    "Web accessibility"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Orlando Foods",
+    "url": "https://orlandofoods.com/"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/rafalmcichon/",
+    "https://github.com/RafalMCichon",
+    "https://twitter.com/rafalmcichon",
+    "https://rafalmcichon.dev/"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Don't sync everything: one owner, one direction per field",
+  "description": "When you bridge an ERP and a CMS, the cleanest contract is to make every field owned by exactly one system, syncing in exactly one direction.",
+  "author": { "@type": "Person", "name": "Rafal M Cichon", "url": "https://rafalmcichon.com/" },
+  "publisher": { "@type": "Person", "name": "Rafal M Cichon", "url": "https://rafalmcichon.com/" },
+  "datePublished": "2026-06-20T10:00:00-04:00",
+  "dateModified": "2026-06-20T10:00:00-04:00",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rafalmcichon.com/notes/one-owner-one-direction-per-field/" },
+  "image": ["https://rafalmcichon.com/assets/og-default.png"]
+}
+</script>
+
+
+<!-- RSS feed -->
+<link rel="alternate" type="application/rss+xml" title="Rafal M Cichon" href="https://rafalmcichon.com/feed.xml">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-STQ5M8CE0S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-STQ5M8CE0S');
+</script>
+
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="Home">Rafal M Cichon</a>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="/projects/" >Projects</a>
+  <a href="/notes/" >Notes</a>
+  <a href="/log/" >Log</a>
+  <a href="/resume/" >Resume</a>
+  <a href="/about/" >About</a>
+  <a href="/contact/" >Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main-content" tabindex="-1" class="wrap">
+      <article class="post">
+  <header class="post-header">
+    <h1>Don't sync everything: one owner, one direction per field</h1>
+
+    
+      <p class="muted">
+        <time datetime="2026-06-20T10:00:00-04:00">June 20, 2026</time>
+      </p>
+    
+
+    
+      <p class="lead">When you bridge an ERP and a CMS, the cleanest contract is to make every field owned by exactly one system, syncing in exactly one direction.</p>
+    
+  </header>
+
+  <div class="post-content">
+    <h2 id="tldr">TL;DR</h2>
+<p>When two systems share data (an ERP and a CMS, an admin app and a public site, a master DB and a cache), the cleanest contract is: <strong>one owner and one direction per field</strong>. The moment a field is editable in both, you’ve signed up for a conflict you’ll resolve forever.</p>
+
+<p>This is the rule that turned a Sanity-on-top-of-NetSuite setup (<a href="/projects/sanity-cms-marketing-layer/">case study</a>) from “which value is right?” into something operators can actually trust.</p>
+
+<h2 id="the-trap">The trap</h2>
+<p>When you pull ERP data into a CMS, the tempting move is to make everything editable. It feels generous. It immediately creates a conflict: if a marketer edits a weight in the CMS and the ERP later re-syncs, <strong>whose value wins?</strong> Same question for descriptions, categories, SEO, pricing — every shared field. You end up writing a merge policy, and the merge policy is where bugs live.</p>
+
+<h2 id="the-rule">The rule</h2>
+<p>For every field, decide two things and write them down:</p>
+
+<ol>
+  <li><strong>Who owns it</strong> — the system of record.</li>
+  <li><strong>Which direction it syncs</strong> — owner → consumer, never both ways.</li>
+</ol>
+
+<p>Then enforce the rule in the schema, not in a wiki:</p>
+
+<ul>
+  <li><strong>Operational/commercial data</strong> (item code, class, weights, dimensions, pallet layout, barcodes, pricing) — <strong>ERP owns it.</strong> Syncs one-way into the CMS. <strong>Read-only in the CMS UI</strong>, written only by the sync process via an API token.</li>
+  <li><strong>Marketing/presentation data</strong> (descriptions, imagery, recipes, SEO, cross-links) — <strong>CMS owns it.</strong> ERP never touches it.</li>
+</ul>
+
+<p>In the CMS schema this means two visibly different sections: operational fields grouped into a “locked” section (read-only in the UI), and marketing fields into an “editable” section listed first. A living <strong>field-ownership map</strong> documents every field, its source, and its direction.</p>
+
+<h2 id="why-this-works">Why this works</h2>
+<ul>
+  <li><strong>No “which value is right?” debates</strong> — the schema answers it before anyone asks.</li>
+  <li><strong>Editors get a clean, obvious surface</strong> — “this part is from the ERP, this part is yours.”</li>
+  <li><strong>The sync can run safely</strong> without ever clobbering human work, because it only writes into fields it owns.</li>
+  <li><strong>The next engineer onboards in an afternoon</strong>, because the rule is the schema.</li>
+</ul>
+
+<h2 id="how-to-apply-it-elsewhere">How to apply it elsewhere</h2>
+<ul>
+  <li>Same as <strong>draft/publish</strong> in a CMS: data is owned by the editor, publish status is owned by the publish action; the published copy is read-only everywhere except the publish step.</li>
+  <li>Same as <strong>app/cache</strong>: app owns writes, cache is read-only and rebuilt; never edit the cache directly.</li>
+  <li>Same as <strong>frontend/backend</strong> for derived values: the backend owns the canonical number, the frontend renders it but never persists its own version.</li>
+</ul>
+
+<p>If you notice yourself writing a merge policy, stop and ask: <em>can I just pick an owner?</em></p>
+
+<h2 id="when-not-to-use-it">When not to use it</h2>
+<ul>
+  <li>Truly <strong>collaborative</strong> fields where both systems contribute <em>new</em> facts (e.g. one writes “submitted”, the other writes “approved”). Solution: split them into two fields, each with one owner. Don’t share one field.</li>
+  <li><strong>Migration windows</strong> where you genuinely need to write from both sides briefly. Treat it as temporary, write the cutover date down, and finish it.</li>
+</ul>
+
+<h2 id="the-one-line-version">The one-line version</h2>
+<p>Don’t sync everything. <strong>Decide who owns each field.</strong></p>
+
+  </div>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p class="muted">
+      © 2026 Rafal M Cichon ·
+      <a href="/site/">Site</a> ·
+      <a href="/feed.xml">RSS</a> ·
+      <a href="/sitemap.xml">Sitemap</a> ·
+      <a href="/llms.txt">LLMs</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

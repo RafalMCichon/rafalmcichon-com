@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Shopify Member Directory: Moderation, Maps, and Edge Sync — Case Study</title><meta name="description" content="A public member directory built on Shopify: customer-account UI extension, edge-worker moderation pipeline, and a self-contained Leaflet/OpenStreetMap directory map — with the engineering decisions that made it portable and reliable.">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Rafal M Cichon">
+
+<link rel="canonical" href="https://rafalmcichon.com/projects/shopify-member-directory/">
+
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="/assets/site.css">
+
+<!-- Favicons -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="Rafal M Cichon">
+<meta property="og:title" content="Shopify Member Directory: Moderation, Maps, and Edge Sync — Case Study">
+<meta property="og:description" content="A public member directory built on Shopify: customer-account UI extension, edge-worker moderation pipeline, and a self-contained Leaflet/OpenStreetMap directory map — with the engineering decisions that made it portable and reliable.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rafalmcichon.com/projects/shopify-member-directory/">
+<meta property="og:image" content="https://rafalmcichon.com/assets/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shopify Member Directory: Moderation, Maps, and Edge Sync — Case Study">
+<meta name="twitter:description" content="A public member directory built on Shopify: customer-account UI extension, edge-worker moderation pipeline, and a self-contained Leaflet/OpenStreetMap directory map — with the engineering decisions that made it portable and reliable.">
+<meta name="twitter:image" content="https://rafalmcichon.com/assets/og-default.png">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Rafal M Cichon",
+  "url": "https://rafalmcichon.com/"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rafal M Cichon",
+  "url": "https://rafalmcichon.com/",
+  "jobTitle": "Senior Digital Growth & Web Engineer",
+  "knowsAbout": [
+    "Shopify UX",
+    "Conversion rate optimization (CRO)",
+    "Technical SEO",
+    "Core Web Vitals",
+    "Web performance",
+    "Web accessibility"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Orlando Foods",
+    "url": "https://orlandofoods.com/"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/rafalmcichon/",
+    "https://github.com/RafalMCichon",
+    "https://twitter.com/rafalmcichon",
+    "https://rafalmcichon.dev/"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Shopify member directory — moderated profiles, map, and a key-less geocoded UI",
+  "description": "A public member directory built on Shopify: customer-account UI extension, edge-worker moderation pipeline, and a self-contained Leaflet/OpenStreetMap directory map — with the engineering decisions that made it portable and reliable.",
+  "author": { "@type": "Person", "name": "Rafal M Cichon", "url": "https://rafalmcichon.com/" },
+  "publisher": { "@type": "Person", "name": "Rafal M Cichon", "url": "https://rafalmcichon.com/" },
+  "datePublished": "2026-06-20T00:00:00-04:00",
+  "dateModified": "2026-06-20T00:00:00-04:00",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rafalmcichon.com/projects/shopify-member-directory/" },
+  "image": ["https://rafalmcichon.com/assets/og-default.png"]
+}
+</script>
+
+
+<!-- RSS feed -->
+<link rel="alternate" type="application/rss+xml" title="Rafal M Cichon" href="https://rafalmcichon.com/feed.xml">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-STQ5M8CE0S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-STQ5M8CE0S');
+</script>
+
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="Home">Rafal M Cichon</a>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="/projects/" >Projects</a>
+  <a href="/notes/" >Notes</a>
+  <a href="/log/" >Log</a>
+  <a href="/resume/" >Resume</a>
+  <a href="/about/" >About</a>
+  <a href="/contact/" >Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main-content" tabindex="-1" class="wrap">
+      <h1 id="shopify-member-directory--moderated-profiles-map-and-a-key-less-geocoded-ui">Shopify member directory — moderated profiles, map, and a key-less geocoded UI</h1>
+
+<blockquote>
+  <p>Built for a member-based non-profit (a separate engagement from my day-to-day work). The organization name, storefront URL, store/app IDs, API tokens, worker URLs, metaobject handles, and repository names are intentionally omitted — for the client’s privacy and for security. The architecture, decisions, bugs, and fixes are real.</p>
+</blockquote>
+
+<h2 id="tldr">TL;DR</h2>
+<p>I built a public member directory for a non-profit on Shopify, in three parts: a <strong>customer-account UI extension</strong> for self-service profile editing, a <strong>serverless edge worker</strong> that turns customer-metafield edits into approved, published profiles, and a <strong>storefront theme</strong> that renders the directory and a self-contained Leaflet + OpenStreetMap map.</p>
+
+<p>The interesting work wasn’t any one part — it was the <strong>moderation contract</strong> that ties them together, and the small decisions (materialize at write time, vendor your assets, derive coordinates server-side) that made the system reliable.</p>
+
+<h2 id="context">Context</h2>
+<p>Three moving parts:</p>
+
+<ol>
+  <li><strong>Customer-account UI extension</strong> — a “Membership” page inside the hosted customer account where members fill in a profile (bio, role, business details, social links, photo, gallery), certify eligibility, and submit an application.</li>
+  <li><strong>Serverless edge worker</strong> — receives a <code class="language-plaintext highlighter-rouge">customers/update</code> webhook, reads authoritative state via the Admin API, and decides whether to publish.</li>
+  <li><strong>Storefront theme</strong> — renders the public directory, individual profile pages, a map of members, and the marketing pages.</li>
+</ol>
+
+<p>Data is modeled as <strong>customer metafields</strong> (the editable source of truth) and a <strong>metaobject per member</strong> (the published, public-facing copy). A moderation step sits between them: members edit freely, but changes only go public after approval.</p>
+
+<p>That separation — <em>private editable data</em> vs <em>public approved data</em> — is the backbone of nearly every problem and solution below.</p>
+
+<h2 id="why-a-customer-account-extension-not-native-forms">Why a customer-account extension, not native forms</h2>
+<p>The legacy setup was a manual bottleneck: <strong>600+ submissions but fewer than 30 members actually published</strong>, because an admin had to hand-add each approved person. The whole point of the rebuild was to replace that with <strong>self-service</strong>.</p>
+
+<p>The first attempt used <strong>Shopify’s native forms</strong> for profile input — the least-code path. It broke on a core requirement: members must be able to <strong>come back and edit</strong> their profile. A native form re-submission <strong>overwrites</strong> rather than updating a known record; there was no clean “this is the same member editing their existing profile” contract. It could be coerced into working, but never cleanly.</p>
+
+<p>The fix was to move input <strong>into the logged-in customer account</strong>: a customer-account UI extension writes to that member’s own <strong>customer metafields</strong> (the editable source of truth), keyed to their account. Login provides identity for free — every edit is unambiguously “this member updating their own record,” which is exactly what re-editable profiles need. That decision is what makes the moderation model below possible, and what let hundreds of legacy submissions onboard themselves instead of waiting on a manual add.</p>
+
+<h2 id="the-moderation-model-one-boolean-does-the-work">The moderation model: one boolean does the work</h2>
+<p>Members must be able to edit at any time, but the directory must only ever show approved content. Pushing every edit live would leak unreviewed changes; blocking edits until review would make the product feel dead.</p>
+
+<p>The whole moderation workflow is captured by one boolean, <code class="language-plaintext highlighter-rouge">pending_changes</code>, with one invariant:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">pending_changes == false</code> ⟺ the current private data <strong>equals</strong> the last approved data.</li>
+  <li>Every public-field edit by an approved member sets <code class="language-plaintext highlighter-rouge">pending_changes = true</code>.</li>
+</ul>
+
+<p>That collapses the webhook handler into a small, idempotent decision table:</p>
+
+<ul>
+  <li><strong>Not approved</strong> → ensure the public entry is hidden (draft).</li>
+  <li><strong>Approved + pending changes</strong> → keep the last approved version; reconcile publish status only.</li>
+  <li><strong>Approved + no pending changes</strong> → publish current data (create on first approval, otherwise update).</li>
+</ul>
+
+<p>The handler can run on every webhook delivery and safely no-op when there’s nothing to do. Approvals and re-approvals are just metafield flips an admin performs; the system converges to the correct published state on its own.</p>
+
+<h2 id="approved-but-invisible--when-correct-behavior-looks-like-a-bug">“Approved but invisible” — when correct behavior looks like a bug</h2>
+<p>A test member was approved, the metaobject existed, yet the profile never appeared. From the outside it looked like a defect.</p>
+
+<p>It wasn’t. Publishing is gated by <em>more</em> than approval: the publish-status function returns “active” only when <strong>status is approved, the member consented to directory listing, and a profile photo exists.</strong> Otherwise the entry stays in <em>draft</em> and is excluded from the public query. The member had no photo, so the entry was correctly held back.</p>
+
+<p>The fix wasn’t code — it was <strong>observability of the business rule</strong>. The requirement got surfaced in the form (see “Form UX” below) so members aren’t silently stuck in draft. Lesson: any rule that hides user content needs a visible explanation at the moment it applies, or “correct behavior” reads as “broken.”</p>
+
+<h2 id="materialize-at-write-time-a-reliability-decision">Materialize at write time (a reliability decision)</h2>
+<p>The customer-account page needed a “View your public profile” link, derived from the published metaobject’s handle. The natural approach — read the metaobject <strong>reference</strong> from the customer metafield and traverse to its handle — proved unreliable across the customer-account API boundary. The link frequently failed to render.</p>
+
+<p>Fix: stop deriving fragile values at read time.</p>
+
+<ul>
+  <li><strong>Backend:</strong> on every successful publish/reconcile, persist the handle to a simple <strong>plain-text metafield</strong> (best-effort; a failure here never blocks the sync).</li>
+  <li><strong>Client:</strong> read the plain string first; fall back to reference-traversal only if the string is absent (so older records keep working without a data migration).</li>
+</ul>
+
+<p>Reading a scalar string has none of the access/traversal fragility of resolving a reference object. Denormalize <strong>deliberately</strong> for reliability.</p>
+
+<h2 id="a-self-contained-map-leaflet--openstreetmap-no-api-key">A self-contained map: Leaflet + OpenStreetMap (no API key)</h2>
+<p>The directory needed a member map. The hosted map components in the newer extension channel weren’t available in the version this extension targets, and the map belongs on the <strong>storefront</strong>, not in the account UI anyway. The right move: a self-contained theme section using <strong>Leaflet + OpenStreetMap</strong> — no API key, no per-request cost, portable across themes.</p>
+
+<p>Building it surfaced three instructive bugs, each worth its own lesson.</p>
+
+<h3 id="no-pins--a-single-use-collection-iterated-twice">“No pins” — a single-use collection iterated twice</h3>
+<p>The map rendered but showed no markers. The same server-rendered collection was iterated <strong>twice</strong> — once for a counter, once to build the data array — and behaved as <strong>single-use</strong>, so the second pass produced nothing. Fix: iterate exactly once, compute counts on the client from the materialized data. Treat server-rendered collections as potentially single-pass.</p>
+
+<h3 id="a-syntax-error-from-an-unexpected-identifier">A syntax error from an unexpected identifier</h3>
+<p>After fixing iteration, the array was still empty. The console showed a syntax error: a framework-generated section identifier (containing a double underscore) was being interpolated into a <strong>JavaScript variable name</strong>, producing invalid code. Fix: stop generating executable JS with interpolated identifiers — emit data as a <code class="language-plaintext highlighter-rouge">&lt;script type="application/json"&gt;</code> block and parse it with <code class="language-plaintext highlighter-rouge">JSON.parse</code>. JSON isn’t executed, so it can’t throw syntax errors. Don’t build JS <em>identifiers</em> from framework-generated strings.</p>
+
+<h3 id="third-party-asset-flagged-by-the-theme-linter">Third-party asset flagged by the theme linter</h3>
+<p>Loading Leaflet from a public CDN tripped the platform’s theme check (“serve assets from the platform CDN”). Fix: <strong>vendor</strong> Leaflet’s CSS/JS into the theme’s own assets and replace the default marker images with CSS-only markers — removing the last external dependency.</p>
+
+<p>The final map is key-less, dependency-free at runtime, lint-clean, and degrades gracefully: members without coordinates are simply skipped, with a visible “X of Y shown on the map” counter.</p>
+
+<h2 id="the-directory-disappeared-on-a-new-theme-it-didnt">“The directory disappeared on a new theme” (it didn’t)</h2>
+<p>While trialing a different theme, the directory page rendered empty. It looked like data loss. It wasn’t: the directory is rendered by <strong>custom sections and templates</strong> that live only in the original theme. A fresh theme doesn’t contain them, so the page falls back to a default template and shows nothing. The <strong>data</strong> (metaobjects and storefront access) is store-level and was never affected.</p>
+
+<p>The fix was conceptual:</p>
+
+<ul>
+  <li>Store-level data (metaobjects, metafield access) is theme-independent.</li>
+  <li>Presentation (sections/templates) must be <strong>carried over</strong> to any new theme.</li>
+  <li>Custom sections were kept <strong>self-contained</strong> (scoped CSS, no cross-section dependencies) so “carrying it over” is a file copy plus re-assigning the page template.</li>
+</ul>
+
+<p>On platforms where themes are swappable, separate <strong>data ownership</strong> from <strong>presentation ownership</strong> explicitly, and treat custom presentation as portable modules.</p>
+
+<h2 id="designing-to-the-platforms-seams-hosted-account-pages">Designing to the platform’s seams (hosted account pages)</h2>
+<p>The hosted account area switched from top tabs to side navigation mid-build, and per-page titles moved into the nav. The full-page extension suddenly rendered a redundant — then <em>empty</em> — title region as we tried to match the new look.</p>
+
+<p>Root cause: the page container component always renders a title region: filled when given a heading, empty when not. Removing the heading didn’t remove the region; it left an empty heading element (an accessibility smell).</p>
+
+<p>Solution: <strong>stop using the page-title container</strong> for that surface and render content directly in a centered, width-constrained column. The title region disappears entirely instead of going empty.</p>
+
+<p>Related: the hosted surface can’t reuse the storefront’s header/navigation — it’s a separate, platform-rendered surface. Visual consistency comes from <strong>branding settings</strong> (logo, colors) and a configurable account menu, not from injecting the theme’s header. When a wrapper always emits a region, the choice isn’t “empty vs filled” — it’s “use the wrapper vs don’t.”</p>
+
+<h2 id="form-ux-validation-is-communication">Form UX: validation is communication</h2>
+<p>Several small fixes compounded into a much better application form.</p>
+
+<ul>
+  <li><strong>Don’t disable submit to “enforce” validity.</strong> For a long application form, disabling submit until valid leaves users with <strong>no feedback</strong> about what’s missing. Keep submit enabled, validate on submit, and show a consolidated error summary listing every missing field. (A short, pre-filled edit form can still use disable-until-valid; a long first-time form should not.)</li>
+  <li><strong>Show required fields up front.</strong> Use the framework’s native <code class="language-plaintext highlighter-rouge">required</code> attribute so required fields are marked <strong>before</strong> interaction. Where a specific control didn’t support it, the label carried the indicator.</li>
+  <li><strong>Give copy-paste examples for formatted fields.</strong> URL fields that require a full <code class="language-plaintext highlighter-rouge">https://</code> value show an example (<code class="language-plaintext highlighter-rouge">https://instagram.com/...</code>). Where the control didn’t support a placeholder, a small helper line under the field carried it.</li>
+  <li><strong>State limits where the limit is enforced.</strong> Image uploads state accepted formats, size cap, and count up front — not via an error after the fact.</li>
+</ul>
+
+<p>Fewer dead-ends, fewer failed submissions, far less “why can’t I continue?” in user testing.</p>
+
+<h2 id="derive-what-users-shouldnt-have-to-type-geocoding-fail-soft">Derive what users shouldn’t have to type (geocoding, fail-soft)</h2>
+<p>The map needs coordinates, but asking members for latitude/longitude is absurd UX, and a mistyped address shouldn’t corrupt data or block a profile. So geocoding runs <strong>server-side</strong> during sync (members only ever type an address) and is engineered to never harm the primary workflow:</p>
+
+<ul>
+  <li><strong>Optional / feature-flagged</strong> — can be turned off instantly.</li>
+  <li><strong>Non-blocking</strong> — a failed or low-confidence geocode never blocks the profile from syncing or publishing; the member simply doesn’t get a map pin yet.</li>
+  <li><strong>Cached</strong> — unchanged addresses don’t re-query the geocoder.</li>
+</ul>
+
+<p>The map fills in automatically as members are approved, with zero extra input from members.</p>
+
+<h2 id="how-the-work-stayed-fast">How the work stayed fast</h2>
+<p>A few process choices mattered as much as any single fix.</p>
+
+<ul>
+  <li><strong>Validate against the source of truth, not memory.</strong> UI components and props were validated against the platform’s own component/schema tooling before shipping. This caught invalid props (a control that didn’t support <code class="language-plaintext highlighter-rouge">placeholder</code>, button variants that didn’t exist) <em>before</em> deploy, not after. Guessing API surface area is the most common avoidable time-sink.</li>
+  <li><strong>Tight edit → validate → deploy loop, clean git hygiene.</strong> Frontend and backend in separate repos; backend auto-deployed from <code class="language-plaintext highlighter-rouge">main</code>; small commits made the occasional revert trivial.</li>
+  <li><strong>Separate who runs what.</strong> Human operator ran deploys, store config, and infra; the assistant only edited, validated, and pushed. Risky, hard-to-reverse actions stayed under human control while iteration stayed fast.</li>
+  <li><strong>Diagnose before patching.</strong> Several “bugs” — invisible profile, empty map, disappearing directory — were not code defects: they were business-rule gating, single-use iteration, framework identifier rules, and theme portability. Root cause every time, often via a single temporary diagnostic line that printed exactly what crossed the boundary.</li>
+  <li><strong>Ship the MVP, defer the rest.</strong> With a small initial member base, the right move was to ship the core flow (apply → approve → publish → appear in directory/map) and onboard real users. Real usage was the prioritization signal.</li>
+</ul>
+
+<h2 id="key-lessons">Key lessons</h2>
+<ol>
+  <li>A single, well-chosen invariant (<code class="language-plaintext highlighter-rouge">pending_changes</code> mirrors “current == approved”) collapses a messy moderation workflow into a tiny, testable decision table.</li>
+  <li>When a value is expensive or fragile to <em>derive</em> at read time, <strong>materialize it at write time</strong> into the simplest readable shape.</li>
+  <li>“Self-contained” is a feature — vendoring a small library and avoiding external calls makes a component portable, auditable, and resilient.</li>
+  <li>Separate <strong>data ownership</strong> from <strong>presentation ownership</strong> on platforms where themes are swappable.</li>
+  <li>On managed UI surfaces, design to the platform’s <strong>seams</strong> — don’t fight wrappers that always emit a region.</li>
+  <li>Validation is <strong>communication</strong>: surface requirements early, never hide the path forward.</li>
+  <li><strong>Derive it, and let it fail soft</strong> — never let a nice-to-have step block the core workflow.</li>
+</ol>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p class="muted">
+      © 2026 Rafal M Cichon ·
+      <a href="/site/">Site</a> ·
+      <a href="/feed.xml">RSS</a> ·
+      <a href="/sitemap.xml">Sitemap</a> ·
+      <a href="/llms.txt">LLMs</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

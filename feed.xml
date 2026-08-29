@@ -1,4 +1,128 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://rafalmcichon.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://rafalmcichon.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-08-15T09:55:43-04:00</updated><id>https://rafalmcichon.com/feed.xml</id><title type="html">Rafal M Cichon</title><subtitle>Senior Digital Growth &amp; Web Engineer — Shopify UX, CRO, SEO, performance, accessibility.</subtitle><entry><title type="html">Measuring Shopify UX changes (a minimal CRO plan)</title><link href="https://rafalmcichon.com/notes/measuring-shopify-ux-changes/" rel="alternate" type="text/html" title="Measuring Shopify UX changes (a minimal CRO plan)" /><published>2026-02-08T15:00:00-05:00</published><updated>2026-02-08T15:00:00-05:00</updated><id>https://rafalmcichon.com/notes/measuring-shopify-ux-changes</id><content type="html" xml:base="https://rafalmcichon.com/notes/measuring-shopify-ux-changes/"><![CDATA[<h2 id="tldr">TL;DR</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://rafalmcichon.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://rafalmcichon.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-08-28T22:14:20-04:00</updated><id>https://rafalmcichon.com/feed.xml</id><title type="html">Rafal M Cichon</title><subtitle>Senior Digital Growth &amp; Web Engineer — Shopify UX, CRO, SEO, performance, accessibility.</subtitle><entry><title type="html">Migrating a live member community without leaking anyone</title><link href="https://rafalmcichon.com/notes/migrating-a-live-member-community/" rel="alternate" type="text/html" title="Migrating a live member community without leaking anyone" /><published>2026-08-28T10:00:00-04:00</published><updated>2026-08-28T10:00:00-04:00</updated><id>https://rafalmcichon.com/notes/migrating-a-live-member-community</id><content type="html" xml:base="https://rafalmcichon.com/notes/migrating-a-live-member-community/"><![CDATA[<h2 id="tldr">TL;DR</h2>
+<p>Migrating a member community is not a database copy — it’s a <strong>consent and reversibility problem</strong>. When you move real people’s profiles from an old platform to a new one, the failure mode isn’t a bad import; it’s <strong>publishing someone before they agreed to be published</strong>.</p>
+
+<p>The pattern that made migrating 600+ legacy submissions safe: import everyone as <strong>private drafts</strong>, capture <strong>fresh consent + eligibility on the new platform</strong>, tag every record for <strong>rollback</strong>, and roll out invitations in <strong>phased waves</strong> with monitoring between each.</p>
+
+<p>This complements the <a href="/projects/shopify-member-directory/">member directory case study</a> — that one is about the live product; this note is about getting a legacy community <em>into</em> it without breaking anyone’s trust.</p>
+
+<h2 id="the-starting-point-a-manual-bottleneck">The starting point: a manual bottleneck</h2>
+<p>The legacy WordPress site had <strong>600+ submissions but fewer than 30 members actually visible</strong> in the directory. Not because people weren’t applying — because <strong>publishing a member was a manual step</strong>: an admin hand-added each approved person to the members list. The backlog <em>was</em> the workflow.</p>
+
+<p>So the migration wasn’t just “move the data.” It was “<strong>replace the manual bottleneck with a self-service flow</strong>”: members log in, edit their own profile, and an approval flips them live — instead of an admin re-typing everyone. Automating that publish step is what turned a sub-30 trickle into something that could actually onboard the 600+ backlog.</p>
+
+<h2 id="the-trap-migration-sounds-like-copy">The trap: “migration” sounds like “copy”</h2>
+<p>A legacy site already has everyone’s data — bios, photos, business details — so the tempting move is to import it and switch the new directory on. That quietly does something you never had permission to do: it <strong>re-publishes</strong> people on a new platform, under new terms, in a new searchable place, without asking.</p>
+
+<p>Old consent doesn’t transfer. Consent given to a WordPress directory in 2019 is not consent to appear in a new Shopify-hosted directory in 2026. Treat the migration as a <strong>new publication event</strong>, because legally and ethically that’s what it is.</p>
+
+<h2 id="the-rule-import-private-publish-on-consent">The rule: import private, publish on consent</h2>
+<p>Every imported record lands as a <strong>private draft</strong> and stays private until the member does four things <strong>on the new platform</strong>:</p>
+
+<ol>
+  <li>Logs in (proves control of the account).</li>
+  <li>Confirms <strong>eligibility</strong> (still a member in good standing).</li>
+  <li>Gives <strong>fresh consent</strong> to be listed.</li>
+  <li>Is <strong>approved</strong> by an operator.</li>
+</ol>
+
+<p>Only when all four are true does the profile become public. Until then it’s invisible to the directory query and excluded from search engines. The import gets the data <em>ready</em>; the member decides if it goes <em>live</em>.</p>
+
+<p>This maps cleanly onto the directory’s existing moderation model — a draft/published split where the published copy is the only thing the public ever sees.</p>
+
+<h2 id="build-the-importer-to-be-boring-resumable-and-idempotent">Build the importer to be boring: resumable and idempotent</h2>
+<p>A one-shot script that dies at record 400 is a disaster, because now you don’t know what’s half-done. The importer was built to be <strong>re-runnable without fear</strong>:</p>
+
+<ul>
+  <li><strong>Idempotent</strong> — running it twice doesn’t create duplicates; it converges to the same state.</li>
+  <li><strong>Resumable</strong> — it can stop and restart, picking up where it left off.</li>
+  <li><strong>Auditable</strong> — it emits a <strong>machine-readable report</strong> of exactly what it created, skipped, and why.</li>
+  <li><strong>Tested against messy reality</strong> — property-based tests (fast-check) threw malformed, missing, and weird inputs at it, because 600+ hand-entered records <em>will</em> contain surprises.</li>
+</ul>
+
+<p>The goal isn’t a clever importer. It’s an importer you can run at 2pm, get interrupted, and re-run at 4pm without holding your breath.</p>
+
+<h2 id="make-every-record-reversible">Make every record reversible</h2>
+<p>Before importing anything, decide how you’d undo it. Every migrated record was <strong>tagged</strong> so the entire batch can be identified and rolled back as a unit. “We can always undo this” changes how fast you can move — reversibility <em>is</em> the safety margin that lets you ship.</p>
+
+<p>If you can’t cleanly answer “how do we roll this back?”, you’re not ready to import.</p>
+
+<h2 id="roll-out-invitations-in-waves-not-a-broadcast">Roll out invitations in waves, not a broadcast</h2>
+<p>The migration invitation — the email that tells members “we’ve moved, come claim your profile” — is the riskiest single action, because it hits everyone at once and touches deliverability, load, and trust.</p>
+
+<p>So it went out in <strong>waves</strong>:</p>
+
+<ul>
+  <li>A small <strong>canary wave</strong> first, watched closely (deliverability, bounces, confused replies, error rates).</li>
+  <li>Then progressively larger waves, with <strong>monitoring between each</strong>.</li>
+  <li>Lifecycle emails (received / approved / changes published) wired up <strong>before</strong> the invitation, so members got feedback at every step instead of silence.</li>
+</ul>
+
+<p>A blast to 660 people is one big bet you can’t take back. Waves turn it into a series of small, observed bets — and the first sign of trouble stops the rollout instead of reaching everyone.</p>
+
+<h2 id="keep-the-old-site-up-until-the-new-one-earns-the-switch">Keep the old site up until the new one earns the switch</h2>
+<p>The public relaunch — new theme, structured data, accessibility fixes, legal policies — shipped as a <strong>zero-downtime domain cutover</strong>, not a hard swap. The legacy host stayed authoritative until the new site was proven, then the domain moved. No window where members hit a broken or empty site.</p>
+
+<h2 id="key-lessons">Key lessons</h2>
+<ol>
+  <li>A community migration is a <strong>consent event</strong>, not a data copy — old consent doesn’t transfer to a new platform.</li>
+  <li><strong>Import private, publish on fresh consent</strong> — the import prepares data; the member decides if it goes live.</li>
+  <li>Make the importer <strong>idempotent, resumable, and auditable</strong> — you want to re-run it without fear, not pray it finishes.</li>
+  <li><strong>Tag for rollback before you import</strong> — if you can’t undo it cleanly, you’re not ready.</li>
+  <li><strong>Phased waves beat a broadcast</strong> — a canary first, monitoring between waves, and the ability to stop before everyone’s affected.</li>
+  <li>Keep the old system authoritative until the new one <strong>earns</strong> the cutover.</li>
+</ol>
+
+<h2 id="the-one-line-version">The one-line version</h2>
+<p>Don’t migrate people. <strong>Invite them</strong> — and keep everyone private until they say yes.</p>]]></content><author><name></name></author><category term="notes" /><summary type="html"><![CDATA[Moving a legacy member community the safe way: 600+ submissions but fewer than 30 hand-published members, then private drafts, fresh consent, reversible records, and phased invitation waves.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://rafalmcichon.com/assets/og-default.png" /><media:content medium="image" url="https://rafalmcichon.com/assets/og-default.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Don’t sync everything: one owner, one direction per field</title><link href="https://rafalmcichon.com/notes/one-owner-one-direction-per-field/" rel="alternate" type="text/html" title="Don’t sync everything: one owner, one direction per field" /><published>2026-06-20T10:00:00-04:00</published><updated>2026-06-20T10:00:00-04:00</updated><id>https://rafalmcichon.com/notes/one-owner-one-direction-per-field</id><content type="html" xml:base="https://rafalmcichon.com/notes/one-owner-one-direction-per-field/"><![CDATA[<h2 id="tldr">TL;DR</h2>
+<p>When two systems share data (an ERP and a CMS, an admin app and a public site, a master DB and a cache), the cleanest contract is: <strong>one owner and one direction per field</strong>. The moment a field is editable in both, you’ve signed up for a conflict you’ll resolve forever.</p>
+
+<p>This is the rule that turned a Sanity-on-top-of-NetSuite setup (<a href="/projects/sanity-cms-marketing-layer/">case study</a>) from “which value is right?” into something operators can actually trust.</p>
+
+<h2 id="the-trap">The trap</h2>
+<p>When you pull ERP data into a CMS, the tempting move is to make everything editable. It feels generous. It immediately creates a conflict: if a marketer edits a weight in the CMS and the ERP later re-syncs, <strong>whose value wins?</strong> Same question for descriptions, categories, SEO, pricing — every shared field. You end up writing a merge policy, and the merge policy is where bugs live.</p>
+
+<h2 id="the-rule">The rule</h2>
+<p>For every field, decide two things and write them down:</p>
+
+<ol>
+  <li><strong>Who owns it</strong> — the system of record.</li>
+  <li><strong>Which direction it syncs</strong> — owner → consumer, never both ways.</li>
+</ol>
+
+<p>Then enforce the rule in the schema, not in a wiki:</p>
+
+<ul>
+  <li><strong>Operational/commercial data</strong> (item code, class, weights, dimensions, pallet layout, barcodes, pricing) — <strong>ERP owns it.</strong> Syncs one-way into the CMS. <strong>Read-only in the CMS UI</strong>, written only by the sync process via an API token.</li>
+  <li><strong>Marketing/presentation data</strong> (descriptions, imagery, recipes, SEO, cross-links) — <strong>CMS owns it.</strong> ERP never touches it.</li>
+</ul>
+
+<p>In the CMS schema this means two visibly different sections: operational fields grouped into a “locked” section (read-only in the UI), and marketing fields into an “editable” section listed first. A living <strong>field-ownership map</strong> documents every field, its source, and its direction.</p>
+
+<h2 id="why-this-works">Why this works</h2>
+<ul>
+  <li><strong>No “which value is right?” debates</strong> — the schema answers it before anyone asks.</li>
+  <li><strong>Editors get a clean, obvious surface</strong> — “this part is from the ERP, this part is yours.”</li>
+  <li><strong>The sync can run safely</strong> without ever clobbering human work, because it only writes into fields it owns.</li>
+  <li><strong>The next engineer onboards in an afternoon</strong>, because the rule is the schema.</li>
+</ul>
+
+<h2 id="how-to-apply-it-elsewhere">How to apply it elsewhere</h2>
+<ul>
+  <li>Same as <strong>draft/publish</strong> in a CMS: data is owned by the editor, publish status is owned by the publish action; the published copy is read-only everywhere except the publish step.</li>
+  <li>Same as <strong>app/cache</strong>: app owns writes, cache is read-only and rebuilt; never edit the cache directly.</li>
+  <li>Same as <strong>frontend/backend</strong> for derived values: the backend owns the canonical number, the frontend renders it but never persists its own version.</li>
+</ul>
+
+<p>If you notice yourself writing a merge policy, stop and ask: <em>can I just pick an owner?</em></p>
+
+<h2 id="when-not-to-use-it">When not to use it</h2>
+<ul>
+  <li>Truly <strong>collaborative</strong> fields where both systems contribute <em>new</em> facts (e.g. one writes “submitted”, the other writes “approved”). Solution: split them into two fields, each with one owner. Don’t share one field.</li>
+  <li><strong>Migration windows</strong> where you genuinely need to write from both sides briefly. Treat it as temporary, write the cutover date down, and finish it.</li>
+</ul>
+
+<h2 id="the-one-line-version">The one-line version</h2>
+<p>Don’t sync everything. <strong>Decide who owns each field.</strong></p>]]></content><author><name></name></author><category term="notes" /><summary type="html"><![CDATA[When you bridge an ERP and a CMS, the cleanest contract is to make every field owned by exactly one system, syncing in exactly one direction.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://rafalmcichon.com/assets/og-default.png" /><media:content medium="image" url="https://rafalmcichon.com/assets/og-default.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Measuring Shopify UX changes (a minimal CRO plan)</title><link href="https://rafalmcichon.com/notes/measuring-shopify-ux-changes/" rel="alternate" type="text/html" title="Measuring Shopify UX changes (a minimal CRO plan)" /><published>2026-02-08T15:00:00-05:00</published><updated>2026-02-08T15:00:00-05:00</updated><id>https://rafalmcichon.com/notes/measuring-shopify-ux-changes</id><content type="html" xml:base="https://rafalmcichon.com/notes/measuring-shopify-ux-changes/"><![CDATA[<h2 id="tldr">TL;DR</h2>
 <p>You don’t need perfect experimentation to improve conversion.<br />
 You need a <strong>consistent baseline</strong>, a <strong>repeatable method</strong>, and a habit of documenting confounders.</p>
 
