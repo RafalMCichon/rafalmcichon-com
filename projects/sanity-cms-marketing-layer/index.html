@@ -136,41 +136,41 @@
 </blockquote>
 
 <h2 id="tldr">TL;DR</h2>
-<p>I built a Sanity CMS workspace that sits on top of NetSuite as the source of truth for products. It adds a <strong>marketing content layer</strong> where our team can prepare content across <strong>9 brands</strong> — from social media to websites — with custom spec sheet generators, structured views for gap analysis, and a product dashboard.</p>
+<p>I built a Sanity CMS that sits on top of NetSuite, which stays the source of truth for products. It adds a <strong>marketing content layer</strong> where our team prepares content for <strong>9 brands</strong> — from social media to websites — with custom spec-sheet generators, views that show what’s missing, and a product dashboard.</p>
 
 <h2 id="context">Context</h2>
 <ul>
   <li>NetSuite is the ERP and single source of truth for product data (SKUs, pricing, specs)</li>
-  <li>The company operates 9 brands, each with its own marketing needs — social media, websites, SEO, optimization</li>
-  <li>Before this, marketing content lived in scattered spreadsheets and documents with no structured way to see what was done, what was missing, or what was ready to publish</li>
-  <li>Product spec sheets were created manually — slow, error-prone, inconsistent across brands</li>
+  <li>The company runs 9 brands, each with its own marketing needs — social media, websites, SEO, optimization</li>
+  <li>Before this, marketing content lived in scattered spreadsheets and documents, with no clear way to see what was done, what was missing, or what was ready to publish</li>
+  <li>Product spec sheets were made by hand — slow, error-prone, and inconsistent across brands</li>
 </ul>
 
 <h2 id="what-i-built">What I built</h2>
 
 <h3 id="marketing-content-layer">Marketing content layer</h3>
-<p>A structured content model in Sanity where each product from NetSuite gets a marketing overlay: descriptions, images, social copy, website content, and brand-specific fields. The NetSuite product data stays canonical — the CMS only adds what marketing needs.</p>
+<p>A structured content setup in Sanity where each NetSuite product gets a layer of marketing fields: descriptions, images, social copy, website content, and brand-specific fields. The NetSuite data stays the source of truth — the CMS only adds what marketing needs.</p>
 
 <h3 id="custom-spec-sheet-generators">Custom spec sheet generators</h3>
-<p>Built custom generators inside Sanity that produce formatted product spec sheets directly from the structured data. What used to take manual assembly now takes a few clicks — consistent formatting, correct data, ready to export.</p>
+<p>Custom generators inside Sanity build formatted product spec sheets straight from the structured data. What used to be assembled by hand now takes a few clicks — same formatting every time, correct data, ready to export.</p>
 
-<h3 id="product-views-and-gap-analysis">Product views and gap analysis</h3>
-<p>Multiple views that let the team filter and group products by brand, category, completeness, and status. Incomplete fields are immediately visible — no need to open each product to find what’s missing. This makes content audits fast and prioritization obvious.</p>
+<h3 id="product-views-that-show-whats-missing">Product views that show what’s missing</h3>
+<p>Views that let the team filter and group products by brand, category, completeness, and status. Missing fields show up right away — no need to open each product to find them. Content audits are fast, and it’s obvious what to fix first.</p>
 
 <h3 id="product-dashboard">Product dashboard</h3>
-<p>A dashboard that shows product counts — total, by category, by brand, by completeness — so the team can see the state of the catalog at a glance without running reports.</p>
+<p>A dashboard that shows product counts — total, by category, by brand, by completeness — so the team can see the state of the catalog at a glance, with no reports to run.</p>
 
 <h2 id="what-it-solved">What it solved</h2>
 <ul>
-  <li><strong>Speed:</strong> spec sheet generation went from manual assembly to structured generation</li>
+  <li><strong>Speed:</strong> spec sheets went from assembled by hand to generated from structured data</li>
   <li><strong>Visibility:</strong> one place to see all products across all 9 brands, with clear gaps</li>
-  <li><strong>Consistency:</strong> structured content model enforces the same fields and format across brands</li>
-  <li><strong>Prioritization:</strong> incomplete fields surface automatically — the team knows what to work on next</li>
+  <li><strong>Consistency:</strong> the structured model keeps the same fields and format across brands</li>
+  <li><strong>What to do next:</strong> missing fields show up on their own, so the team knows where to focus</li>
 </ul>
 
 <h2 id="related-notes">Related notes</h2>
 <ul>
-  <li><a href="/notes/one-owner-one-direction-per-field/">Don’t sync everything: one owner, one direction per field</a> — the field-ownership rule behind the ERP↔CMS contract used here.</li>
+  <li><a href="/notes/one-owner-one-direction-per-field/">Don’t sync everything: one owner, one direction per field</a> — the field-ownership rule behind the ERP↔CMS setup used here.</li>
 </ul>
 
 
