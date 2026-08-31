@@ -3,7 +3,7 @@
 This is a personal portfolio and writing site.
 I publish practical notes, case studies, and a log of wins/losses/lessons learned.
 
-Positioning: full-funnel digital growth engineer — Shopify UX + CRO, paid (Google/Meta), technical SEO, GA4/GTM, email/lifecycle, and headless/Sanity. Open to Digital Growth Lead roles (Shopify & headless).
+Positioning: full-funnel digital growth engineer — Shopify UX + CRO, paid (Google/Meta), technical SEO, GA4/GTM, email/lifecycle, and headless/Sanity. Works at Digital Growth Lead level: owns outcomes end-to-end and builds the systems behind them.
 
 Primary pages:
 - /projects/ - case studies with constraints, decisions, and outcomes
