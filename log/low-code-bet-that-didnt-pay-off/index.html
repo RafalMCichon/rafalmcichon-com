@@ -151,9 +151,9 @@
 
 <p>It didn’t hold up against one core requirement: members must be able to <strong>come back and edit</strong> their profile. A native form re-submission <strong>overwrites</strong> instead of updating a known record — there was no clean “this is the same member editing their existing profile” contract. I spent a couple of days trying to coerce it before accepting the approach was wrong for the job.</p>
 
-<p>The fix was to move input into the <strong>logged-in customer account</strong> (a customer-account UI extension writing to that member’s own metafields), so identity is free and every edit is unambiguously “this member updating their own record.”</p>
+<p>The fix was to move input into the <strong>logged-in customer account</strong> (a customer-account UI extension writing to that member’s own metafields), so I always know who’s editing — it’s clearly that member updating their own record.</p>
 
-<p><strong>Lesson:</strong> “least code” isn’t the same as “right tool.” I should have pressure-tested the low-code option against the <em>hardest</em> requirement (re-editable, identity-keyed records) on day one, not after building around it. Now I write down the one requirement most likely to break a shortcut, and validate <em>that</em> first — before I get attached to the cheap path.</p>
+<p><strong>Lesson:</strong> “least code” isn’t the same as “right tool.” I should have tested the low-code option against the <em>hardest</em> requirement (profiles people can log in and re-edit) on day one, not after building around it. Now I write down the one requirement most likely to break a shortcut, and check <em>that</em> first — before I get attached to the cheap path.</p>
 
   </div>
 </article>
